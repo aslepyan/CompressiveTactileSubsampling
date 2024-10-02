@@ -4,7 +4,7 @@
 
 [[Paper]()]
 
-[Guy Ohayon](https://ohayonguy.github.io/), [Tomer Michaeli](https://tomer.net.technion.ac.il/), [Michael Elad](https://elad.cs.technion.ac.il/)<br />
+[Dian Li](), [Ariel Slapyan]()<br />
 Technion—Israel Institute of Technology
 
 </div>
