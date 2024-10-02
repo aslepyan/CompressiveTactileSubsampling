@@ -1,8 +1,8 @@
 <div align="center">
 
-# Posterior-Mean Rectified Flow:<br />Towards Minimum MSE Photo-Realistic Image Restoration
+# Compressive Subsampling Improves Spatiotemporal Resolution of Tactile Skin through Embedded Software
 
-[[Paper](https://arxiv.org/abs/2410.00418)] [[Project Page](https://pmrf-ml.github.io/)]
+[[Paper]()]
 
 [Guy Ohayon](https://ohayonguy.github.io/), [Tomer Michaeli](https://tomer.net.technion.ac.il/), [Michael Elad](https://elad.cs.technion.ac.il/)<br />
 Technion—Israel Institute of Technology
