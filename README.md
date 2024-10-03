@@ -28,11 +28,11 @@ Explanation of files:
 * `SubsamplingDisplay.m` is used to visualize the subsampled tactile image.
 * `downSamplingShift.m`, `randomSampling.m` and `binarySampling.m` are functions for regular, random and binary sampling methods, respectively.
 
-## training data acquisition
+## Training Data Acquisition
 If you want to obtain training data, use the folder `dict_training`.
 * `trainData.m` is responsible for the training data collection and enable you to see the tactile image you collected.
 
-## dictionary training
+## Dictionary Training
 The folder `dict_training` is also for the task of training dictionary, it allows to train three types of dictionary: learned dictionary, DCT and Haar.
 Explanation of files:
 * `dictTraining_ksvd.m` is for training the learned dictionary based on your training data.
