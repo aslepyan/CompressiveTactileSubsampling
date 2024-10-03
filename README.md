@@ -37,7 +37,7 @@ The folder `dict_training` is also for the task of training dictionary, it allow
 Explanation of files:
 * `dictTraining_ksvd.m` is for training the learned dictionary based on your training data.
 * `dictTraining_DCT.m` is used to train the DCT dictionary.
-* `dictTraining_Haar.m` is used to train the square Haar dictionary.
+* `dictTraining_Haar.m` is used to train the square Haar dictionary (i.e. the number of patch measurements equals to the dictionary size).
 * `dictTraining_overcompleteHaar.m` is used to train the Haar dictionary with the desired dictionary size.
 * `dictCombine.m` combines several patch dictionaries together to recover subsampled tactile data as a whole.
 
