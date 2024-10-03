@@ -22,8 +22,7 @@ Johns Hopkins University
 Note: you will need to contact the authors to get permission to access our data files.
 
 ## Subsampled Data Acquisition
-If you want to collect some tactile data in a subsampling manner, use the folder `Subsampling_Code\Subsampling_Basics\`. <br />
-Explanation of files:
+If you want to collect some tactile data in a subsampling manner, use the folder `Subsampling_Code\Subsampling_Basics\`.
 * `SubsamplingControl.m` is the main function for subsampling in three different modes: regular, random and binary.
 * `SubsamplingDisplay.m` is used to visualize the subsampled tactile image.
 * `downSamplingShift.m`, `randomSampling.m` and `binarySampling.m` are functions for regular, random and binary sampling methods, respectively.
@@ -34,7 +33,6 @@ If you want to obtain training data, use the folder `Subsampling_Code\dict_train
 
 ## Tactile Dictionary Training
 The folder `Subsampling_Code\dict_training\` is also for the task of training dictionary, it allows to train three types of dictionary: learned dictionary, DCT and Haar.
-Explanation of files:
 * `dictTraining_ksvd.m` is for training the learned dictionary based on your training data.
 * `dictTraining_DCT.m` is used to train the DCT dictionary.
 * `dictTraining_Haar.m` is used to train the square Haar dictionary (i.e. the number of patch measurements equals to the dictionary size).
