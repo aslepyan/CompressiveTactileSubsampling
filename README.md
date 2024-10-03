@@ -32,7 +32,7 @@ If you want to obtain training data, use the folder `Subsampling_Code\dict_train
 * `trainData.m` is responsible for collecting the training data and it also enables you to see the tactile image you collected.
 
 ## Tactile Dictionary Training
-The folder `Subsampling_Code\dict_training\` is also for the task of training dictionary, it allows to train three types of dictionary: learned dictionary, DCT and Haar.
+The folder `Subsampling_Code\dict_training\` is also for the task of training dictionary, it allows to train three types of dictionary: learned dictionary, DCT dictionary and Haar dictionary (square and overcomplete).
 * `dictTraining_ksvd.m` is for training the learned dictionary based on your training data.
 * `dictTraining_DCT.m` is used to train the DCT dictionary.
 * `dictTraining_Haar.m` is used to train the square Haar dictionary (i.e. the number of patch measurements equals to the dictionary size).
