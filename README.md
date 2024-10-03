@@ -17,12 +17,12 @@ Johns Hopkins University
 
 ---
 # Usage
-Note: the data file should contact the authors to get permission.
+Note: you need to contact the authors to get permission to access our data files.
 
 ## principle
 
 ## subsampled data acquisition
-use the folder `Subsampling_Basics`.
+use the folder `Subsampling_Basics`. <br />
 Explaination of files
 
 
