@@ -27,7 +27,7 @@ If you want to collect some tactile data in a subsampling manner, use the folder
 * `SubsamplingDisplay.m` is used to visualize the subsampled tactile image.
 * `downSamplingShift.m`, `randomSampling.m` and `binarySampling.m` are functions for regular, random and binary sampling methods, respectively.
 
-## Training Data Acquisition
+## Training Data Collection
 If you want to obtain training data, use the folder `Subsampling_Code\dict_training\`.
 * `trainData.m` is responsible for collecting the training data and it also enables you to see the tactile image you collected.
 
