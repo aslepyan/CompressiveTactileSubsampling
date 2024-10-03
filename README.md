@@ -16,10 +16,10 @@ Johns Hopkins University
 </div>
 
 ---
+# Principle
+
 # Usage
 Note: you will need to contact the authors to get permission to access our data files.
-
-## Principle
 
 ## Subsampled Data Acquisition
 If you want to collect some tactile data in a subsampling manner, use the folder `Subsampling_Basics`. <br />
@@ -39,9 +39,9 @@ Explanation of files:
 * `dictTraining_DCT.m` is used to train the DCT dictionary.
 * `dictTraining_Haar.m` is used to train the square Haar dictionary (i.e. the number of patch measurements equals to the dictionary size).
 * `dictTraining_overcompleteHaar.m` is used to train the Haar dictionary with the desired dictionary size.
-* `dictCombine.m` combines several patch dictionaries together to recover subsampled tactile data as a whole.
+* `dictCombine.m` combines several patch dictionaries together to recover subsampled tactile image as a whole.
 
-## data recovery
+## Data Recovery
 
 # References
 
