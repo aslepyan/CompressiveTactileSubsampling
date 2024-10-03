@@ -23,8 +23,10 @@ Note: you need to contact the authors to get permission to access our data files
 
 ## subsampled data acquisition
 use the folder `Subsampling_Basics`. <br />
-Explaination of files
-
+Explanation of files:
+* `SubsamplingControl.m` is the main function for subsampling in three different modes: regular, random and binary.
+* `SubsamplingDisplay.m` is for visualizing the subsampled tactile image.
+* `downSamplingShift.m`, `randomSampling.m` and `binarySampling.m` are functions for regular, random and binary sampling methods, respectively.
 
 ## training data acquisition
 
