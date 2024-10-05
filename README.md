@@ -29,6 +29,7 @@ If you want to collect some tactile data in a subsampling manner, use the folder
 * `SubsamplingControl.m` is the main function for subsampling in three different modes: regular, random and binary.
 * `SubsamplingDisplay.m` is used to visualize the subsampled tactile image.
 * `downSamplingShift.m`, `randomSampling.m` and `binarySampling.m` are functions for regular, random and binary sampling methods, respectively.
+* `Subsampling` contains the Arduino code used to enable the sensor to execute subsampling tactile data within a designated duration.
 
 ## Training Data Collection
 If you want to obtain training data, use the folder `Subsampling_Code\dict_training\`.
@@ -69,11 +70,12 @@ The folder `Subsampling_Code\deform` is for the application of roughly drawing t
 * The file `deformAnalysis` analyzes the subsampled data of deformable objects and generates a figure depicting their approximate shapes.
 
 ## Real-time Reconstruction/Classification
-
+The folder `realTime` is for the application of real-time reconstruction or classification without any data processing outside the sensor (e.g. MATLAB).
+* ``
 
 ## Rotation
 The folder `Subsampling_Code\rotator` is for the application of fast detection of the pressure of a hard rotator on the sensor in varied frequencies.
-* The file `rot.m`
+* The file `rot.m` analyzes the subsampled data of the rotator at different speeds (or frequencies) and generates a figure showing the single-sided amplitude spectrums.
 
 # References
 
