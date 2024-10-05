@@ -54,7 +54,9 @@ The folder `Subsampling_Code\reconstruction` is for the reconstruction of collec
 
 ## Subsampled Image Classification
 The folder `Subsampling_Code\classification` is for the classification of collected subsampled tactile data. Here, the objects used to do the subsampling have also been used to form the library for subsampled image classification.
-* `SRC.m` is used to determine the classes the reconstructed images belong to, calculate the accuracies of the classification of different methods and sampling modes, as well as plot some relevant figures.
+* `libTraining.m` is used to construct a library for SRC.
+* `libVis.m` visualizes the library.
+* `SRC.m` is used to determine the classes the reconstructed images belong to, calculate the accuracies of the classification of different sampling modes and measurement levels, as well as plot some relevant figures.
 
 # Applications
 With the proposed sampling modes, reconstruction by using a learned dictionary, and SRC, we have designed and conducted several experiments to investigate the feasibility and accuracy of those methods.
