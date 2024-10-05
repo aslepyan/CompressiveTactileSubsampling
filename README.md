@@ -20,8 +20,10 @@ Johns Hopkins University
 
 # Usage
 
-Note: you will need to contact the authors to get permission to access our data files.
-
+Notes:
+1. you will need to contact the authors to get permission to access our data files.
+2. Some helper functions are not explained here, but you can check the comments about their usage in the corresponding files;
+3. 
 ## Subsampled Data Acquisition
 If you want to collect some tactile data in a subsampling manner, use the folder `Subsampling_Code\Subsampling_Basics\`.
 * `SubsamplingControl.m` is the main function for subsampling in three different modes: regular, random and binary.
@@ -59,19 +61,19 @@ The folder `Subsampling_Code\reconstruction` is also for the application of reco
 * The file `genReconAccPlot.m` is used to calculate the accuracies of the reconstructed images and plot some relevant figures. Here, the objects used to do the subsampling have also been used to train the learned dictionary for subsampled image recovery.
 
 ## Projectile
-The folder `projectile` is for the application of fast detection of various projectiles onto the sensor.
-* The file `projectileAnalysis.m` is used to c
+The folder `Subsampling_Code\projectile` is for the application of fast detection of a tennis ball (as a projectile) onto the sensor.
+* The file `projectileAnalysis.m` analyzes the projectile's subsampled data and generates some figures.
 
 ## Deformation
-The folder `deform` is for the application of roughly drawing the shape of deformable objects.
-* The file `deformAnalysis` is used to 
+The folder `Subsampling_Code\deform` is for the application of roughly drawing the shape of deformable objects.
+* The file `deformAnalysis` analyzes the subsampled data of deformable objects and generates a figure depicting their approximate shapes.
 
 ## Real-time Reconstruction/Classification
 
 
 ## Rotation
-The folder `rotator` is for the application of fast detection of the pressure of a hard rotator on the sensor in varied frequencies.
-
+The folder `Subsampling_Code\rotator` is for the application of fast detection of the pressure of a hard rotator on the sensor in varied frequencies.
+* The file `rot.m`
 
 # References
 
