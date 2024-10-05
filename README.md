@@ -48,14 +48,23 @@ The folder `Subsampling_Code\reconstruction` is for the reconstruction of collec
 * `reconAccPlot` is used to calculate the accuracies of the reconstructed images and plot some relevant figures.
 
 ## Subsampled Image Classification
-The folder `classification` is for the classification of collected subsampled tactile data.
+The folder `classification` is for the classification of collected subsampled tactile data whose classes have been .
 * `SRC.m` is used to determine the classes the reconstructed images belong to, calculate the accuracies of the classification of different methods and sampling modes, as well as plot some relevant figures.
 
-## Generalizability (Application #1)
+# Application
+## Generalizability
 * `genReconAccPlot.m` is used to
 
-## Projectile (Application #2)
+## Projectile
 
+
+## Deformation
+
+
+## Real-time Reconstruction/Classification
+
+
+## Rotation
 
 
 # References
