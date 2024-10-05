@@ -40,7 +40,7 @@ The folder `Subsampling_Code\dict_training\` is also for the task of training di
 * `dictCombine.m` combines several patch dictionaries together to recover subsampled tactile images as a whole.
 
 ## Subsampled Image Recovery
-The folder `Subsampling_Code\reconstruction` is for the reconstruction of collected subsampled tactile data.  
+The folder `Subsampling_Code\reconstruction` is for the reconstruction of collected subsampled tactile data. 
 * `dictRecovery1.m` is used to reconstruct the tactile image patch by patch by using various types of dictionaries.
 * `dictRecovery2.m` is used to reconstruct the tactile image as a whole by using various types of dictionaries.
 * `interpRecovery1.m` is used to reconstruct the tactile image by using linear interpolation.
@@ -48,10 +48,10 @@ The folder `Subsampling_Code\reconstruction` is for the reconstruction of collec
 * `reconAccPlot` is used to calculate the accuracies of the reconstructed images and plot some relevant figures.
 
 ## Subsampled Image Classification
-The folder `classification` is for the classification of collected subsampled tactile data whose classes have been .
+The folder `classification` is for the classification of collected subsampled tactile data.
 * `SRC.m` is used to determine the classes the reconstructed images belong to, calculate the accuracies of the classification of different methods and sampling modes, as well as plot some relevant figures.
 
-# Application
+# Applications
 ## Generalizability
 * `genReconAccPlot.m` is used to
 
