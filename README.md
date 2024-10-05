@@ -56,19 +56,21 @@ The folder `Subsampling_Code\classification` is for the classification of collec
 
 ## Generalizability
 The folder `Subsampling_Code\reconstruction` is also for the application of reconstruction of collected subsampled tactile data from objects which are not used to train a learned dictionary.
-* `genReconAccPlot.m` is used to calculate the accuracies of the reconstructed images and plot some relevant figures. Here, the objects used to do the subsampling have also been used to train the learned dictionary for subsampled image recovery.
+* The file `genReconAccPlot.m` is used to calculate the accuracies of the reconstructed images and plot some relevant figures. Here, the objects used to do the subsampling have also been used to train the learned dictionary for subsampled image recovery.
 
 ## Projectile
 The folder `projectile` is for the application of fast detection of various projectiles onto the sensor.
-* 
+* The file `projectileAnalysis.m` is used to c
 
 ## Deformation
-
+The folder `deform` is for the application of roughly drawing the shape of deformable objects.
+* The file `deformAnalysis` is used to 
 
 ## Real-time Reconstruction/Classification
 
 
 ## Rotation
+The folder `rotator` is for the application of fast detection of the pressure of a hard rotator on the sensor in varied frequencies.
 
 
 # References
