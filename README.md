@@ -19,6 +19,7 @@ Johns Hopkins University
 # Principle
 
 # Usage
+
 Note: you will need to contact the authors to get permission to access our data files.
 
 ## Subsampled Data Acquisition
@@ -40,23 +41,26 @@ The folder `Subsampling_Code\dict_training\` is also for the task of training di
 * `dictCombine.m` combines several patch dictionaries together to recover subsampled tactile images as a whole.
 
 ## Subsampled Image Recovery
-The folder `Subsampling_Code\reconstruction` is for the reconstruction of collected subsampled tactile data. 
+The folder `Subsampling_Code\reconstruction` is for the reconstruction of collected subsampled tactile data.
 * `dictRecovery1.m` is used to reconstruct the tactile image patch by patch by using various types of dictionaries.
 * `dictRecovery2.m` is used to reconstruct the tactile image as a whole by using various types of dictionaries.
 * `interpRecovery1.m` is used to reconstruct the tactile image by using linear interpolation.
 * `recDataDisplay.m` is used to view the reconstructed subsampled image.
-* `reconAccPlot` is used to calculate the accuracies of the reconstructed images and plot some relevant figures.
+* `reconAccPlot.m` is used to calculate the accuracies of the reconstructed images and plot some relevant figures. Here, the objects used to do the subsampling have also been used to train the learned dictionary for subsampled image recovery.
 
 ## Subsampled Image Classification
-The folder `classification` is for the classification of collected subsampled tactile data.
+The folder `Subsampling_Code\classification` is for the classification of collected subsampled tactile data. Here, the objects used to do the subsampling have also been used to form the library for subsampled image classification.
 * `SRC.m` is used to determine the classes the reconstructed images belong to, calculate the accuracies of the classification of different methods and sampling modes, as well as plot some relevant figures.
 
 # Applications
+
 ## Generalizability
-* `genReconAccPlot.m` is used to
+The folder `Subsampling_Code\reconstruction` is also for the application of reconstruction of collected subsampled tactile data from objects which are not used to train a learned dictionary.
+* `genReconAccPlot.m` is used to calculate the accuracies of the reconstructed images and plot some relevant figures. Here, the objects used to do the subsampling have also been used to train the learned dictionary for subsampled image recovery.
 
 ## Projectile
-
+The folder `projectile` is for the application of fast detection of various projectiles onto the sensor.
+* 
 
 ## Deformation
 
