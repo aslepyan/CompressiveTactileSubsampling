@@ -36,15 +36,15 @@ The binary sampling mode will define a logarithmic order of positions of measure
 
 **Learned Dictionary Learning and its Recovery**
 :
-The learned dictionary is trained by the patches randomly selected from the collected full raster tactile images using the K-SVD method. The patches are of smaller size (e.g. 8x8 or 16x8) than the full 32x32 tactile images. Then, for each patch of subsampled tactile image, the ``FastOMP`` method rapidly encodes its sparse vector with the learned dictionary and its corresponding sensing matrix. After multiplying the sparse vector with the learned dictionary, we obtained the approximate full-raster patches of images. Last, we average the force values from the portions of overlapped patches. <br />
+The learned dictionary is trained by the patches randomly selected from the collected full raster tactile images using the K-SVD method. The patches are of smaller size (e.g. 8x8 or 16x8) than the full 32x32 tactile images. Then, for each patch of subsampled tactile image, the ``FastOMP`` method with the learned dictionary and its corresponding sensing matrix rapidly encodes its sparse vector. After multiplying the sparse vector with the learned dictionary, we obtained the approximate full-raster patches of images. Last, we average the force values from the portions of overlapped patches. <br />
 
 **Linear Interpolation Recovery**
 :
-Recovery using linear interpolation is a reconstruction of a function f ∈ ℝ<sup>2x1</sup> (e.g. a natural or tactile image) according to the values of some scattered points distributed in the 2D plane by using the linear method. To realize this task, we use a MATLAB function - ``scatteredInterpolant`` with ``'linear'`` as its ``Method`` and ``ExtrapolationMethod``. <br />
+Recovery using linear interpolation is a reconstruction of a function f ∈ **ℝ**<sup>2x1</sup> (e.g. a natural or tactile image) according to the values of some scattered points distributed in the 2D plane by using the linear method. To realize this task, we use a MATLAB function - ``scatteredInterpolant`` with ``'linear'`` as its ``Method`` and ``ExtrapolationMethod``. <br />
 
 **Sparse Representation-based Classification (SRC)**
 :
-In SRC, a library (a matrix with flattened full-raster images as its columns) is used to build an overcomplete library Θ.
+In SRC, we first build a library, which is a matrix with flattened full-raster images as its columns. Each column of the library has a known class or label. Then, for a subsampled tactile image, the ``FastOMP`` method with the library and its corresponding sensing matrix rapidly encodes its sparse vector. After that, we compute the L2 reconstruction error using the coefficients of the sparse vector corresponding to each of the classes separately. The class that minimizes the L2 reconstruction error is selected to be the one for the tested tactile image.
 
 <div align="center">
     <img src="assets/principle.png" width="2000">
