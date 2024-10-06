@@ -139,6 +139,6 @@ We sincerely appreciate Becca Greene, Aidan Aug, Sriramana Sankar, and Trac Tran
 If you have any questions or inquiries, please feel free to contact this [email](mailto:aslepya1@jhu.edu).
 
 ## References
-[^SRC]: Robust face recognition via sparse representation
-[^FastOMP]: An Efficient FPGA Implementation of Orthogonal Matching Pursuit With Square-Root-Free QR Decomposition
-[^KSVD]: K-SVD: An Algorithm for Designing Overcomplete Dictionaries for Sparse Representation
+[^SRC]: Robust face recognition via sparse representation, 2009
+[^FastOMP]: An Efficient FPGA Implementation of Orthogonal Matching Pursuit With Square-Root-Free QR Decomposition, 2018
+[^KSVD]: K-SVD: An Algorithm for Designing Overcomplete Dictionaries for Sparse Representation, 2006
