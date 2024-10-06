@@ -26,14 +26,14 @@ Notes:
 3. 
 
 ## Subsampled Data Acquisition
-If you want to collect some tactile data in a subsampling manner, use the folder `Subsampling_Code\Subsampling_Basics\`.
+If you want to collect some tactile data in a subsampling manner, use the folder `Subsampling_Code\Subsampling_Basics\`. To sample tactile data, the user first needs to upload the file `Subsampling.ino` to the sensor after adjusting the parameters. After that, run `SubsamplingControl.m` with desirable parameters to sample data using various methods.
 * `SubsamplingControl.m` is the main function for subsampling in three different modes: regular, random and binary.
 * `SubsamplingDisplay.m` is used to visualize the subsampled tactile image.
 * `downSamplingShift.m`, `randomSampling.m` and `binarySampling.m` are functions for regular, random and binary sampling methods, respectively.
 * `Subsampling` contains the Arduino code used to enable the sensor to execute subsampling tactile data within a designated duration.
 
 ## Training Data Collection
-If you want to obtain training data, use the folder `Subsampling_Code\dict_training\`.
+If you want to obtain training data, use the folder `Subsampling_Code\dict_training\`. 
 * `trainData.m` is responsible for collecting the training data and it also enables you to see the tactile image you collected.
 
 ## Tactile Dictionary Training
@@ -53,7 +53,7 @@ The folder `Subsampling_Code\reconstruction` is for the reconstruction of collec
 * `reconAccPlot.m` is used to calculate the accuracies of the reconstructed images and plot some relevant figures. Here, the objects used to do the subsampling have also been used to train the learned dictionary for subsampled image recovery.
 
 ## Subsampled Image Classification
-The folder `Subsampling_Code\classification` is for the classification of collected subsampled tactile data. Here, the objects used to do the subsampling have also been used to form the library for subsampled image classification.
+The folder `Subsampling_Code\classification` is for the classification of collected subsampled tactile data. Here, the objects used for subsampling have also been used to form the library for subsampled image classification.
 * `libTraining.m` is used to construct a library for SRC.
 * `libVis.m` visualizes the library.
 * `SRC.m` is used to determine the classes the reconstructed images belong to, calculate the accuracies of the classification of different sampling modes and measurement levels, as well as plot some relevant figures.
@@ -62,7 +62,7 @@ The folder `Subsampling_Code\classification` is for the classification of collec
 With the proposed sampling modes, reconstruction by using a learned dictionary, and SRC, we have designed and conducted several experiments to investigate the feasibility and accuracy of those methods.
 
 ## Generalizability
-The folder `Subsampling_Code\reconstruction` is also for the application of reconstruction of collected subsampled tactile data from objects which are not used to train a learned dictionary.
+The folder `Subsampling_Code\reconstruction` is also for the application of reconstruction of collected subsampled tactile data from objects that are not used to train a learned dictionary.
 * The file `genReconAccPlot.m` is used to calculate the accuracies of the reconstructed images and plot some relevant figures. Here, the objects used to do the subsampling have also been used to train the learned dictionary for subsampled image recovery.
 
 ## Projectile
@@ -74,7 +74,7 @@ The folder `Subsampling_Code\deform` is for the application of roughly drawing t
 * The file `deformAnalysis` analyzes the subsampled data of deformable objects and generates a figure depicting their approximate shapes.
 
 ## Real-time Reconstruction and Classification
-The folder `Subsampling_Code\realTime` is for the application of real-time reconstruction or classification without any data processing outside the sensor (e.g. MATLAB).<br />
+The folder `Subsampling_Code\realTime` is for the application of real-time reconstruction or classification without any data processing outside the sensor.<br />
 To realize this the real-time reconstruction, firstly, the user is expected to have a reasonable learned dictionary using K-SVD method. After adjusting some parameters, the user needs to upload the `realTimeBinaryReconPBP.ino` to the sensor. Then, they run the `helperMat.m` and `dict2Arduino_recon.m` to transfer the dictionary and its helper matrices to the sensor. Finally, the user can visualize the real-time tactile images by using `realTimeVis.m`.<br />
 For its simulation, the user needs to upload the file named `realTimeBinaryReconPBP.ino` and determine the accuracy by using the `realTimeSimu.m`, while all the remaining operations are the same as the real-time reconstruction.<br />
 As for the real-time classification, first of all, the user is required to get the library (a matrix with the flattened full-raster images as its columns) through `libTraining.m` as mentioned above. After adjusting some parameters, the user needs to upload the `realTimeBinarySRC.ino` to the sensor. Then, they run the `dict2Arduino_class.m` to transfer the library to the sensor. Last, they can visualize the real-time classification through the serial monitor in the Arduino.
