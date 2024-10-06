@@ -100,13 +100,15 @@ The folder `Subsampling_Code\rotator` is for the application of fast detection o
 * The file `rot.m` analyzes the subsampled data of the rotator at different speeds (or frequencies) and generates the single-sided amplitude spectrums.
 
 # Citation
-@article{,
+```
+    @article{,
       author    = {Dian Li and Ariel Slapyan and Nitish Thakor},
       title     = {Compressive Subsampling Improves Spatiotemporal Resolution of Tactile Skin through Embedded Software},
       journal   = {arXiv preprint arXiv:},
       year      = {2024},
       url       = {}
     }
+```
 
 # Acknowledgement
 We sincerely appreciate Becca Greene, Aidan Aug, Sriramana Sankar, and Trac Tran for their advice on this work.
