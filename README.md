@@ -47,7 +47,7 @@ Recovery using linear interpolation is a reconstruction of a function f âˆˆ **â„
 In SRC, we first build a library, which is a matrix with flattened full-raster images as its columns. Each column of the library has a known class or label. Then, for a subsampled tactile image, the ``FastOMP`` method with the library and its corresponding sensing matrix rapidly encodes its sparse vector. After that, we compute the L2 reconstruction error using the coefficients of the sparse vector corresponding to each of the classes separately. The class that minimizes the L2 reconstruction error is selected to be the one for the tested tactile image[^SRC].
 
 <div align="center">
-    <img src="assets/principle.png" width="2000">
+    <img src="assets/principles.png" width="2000">
 </div>
 
 ## Usage
