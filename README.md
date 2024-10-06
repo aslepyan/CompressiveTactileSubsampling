@@ -4,7 +4,7 @@
 
 [[Paper]()]
 
-[Dian Li]()<sup>1</sup>, 
+[Dian Li (李典)]()<sup>1</sup>, 
 [Ariel Slapyan](https://scholar.google.com/citations?hl=en&user=8uVwi4UAAAAJ&view_op=list_works&sortby=pubdate)<sup>2</sup>, 
 [Nitish Thakor](https://scholar.google.com/citations?user=SB_7Bi0AAAAJ&hl=en)<sup>1,2</sup>
 <br />
