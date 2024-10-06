@@ -36,7 +36,7 @@ The binary sampling mode will define a logarithmic order of positions of measure
 
 **Orthogonal Matching Pursuit (OMP)**
 :
-OMP is a greedy algorithm used for sparse signal representation or sparse approximation. It is widely used in applications like compressed sensing, sparse coding, and dictionary learning. OMP attempts to find the best sparse representation of a signal as a linear combination of a small number of atoms (columns) from a dictionary matrix.
+OMP is a greedy algorithm used for sparse signal representation or sparse approximation[^OMP]. It is widely used in applications like compressed sensing, sparse coding, and dictionary learning. OMP attempts to find the best sparse representation of a signal as a linear combination of a small number of atoms (columns) from a dictionary matrix.
 
 **Learned Dictionary Learning and its Recovery**
 :
@@ -146,3 +146,5 @@ If you have any questions or inquiries, please feel free to contact this [email]
 [^SRC]: Robust face recognition via sparse representation, 2009
 [^FastOMP]: An Efficient FPGA Implementation of Orthogonal Matching Pursuit With Square-Root-Free QR Decomposition, 2018
 [^KSVD]: K-SVD: An Algorithm for Designing Overcomplete Dictionaries for Sparse Representation, 2006
+[^OMP]:  Matching pursuits with time-frequency dictionaries, 1993
+
