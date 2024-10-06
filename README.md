@@ -4,7 +4,7 @@
 
 [[Paper]()]
 
-[Dian Li]()<sup>1</sup>, [Ariel Slapyan]()<sup>2</sup><br />
+[Dian Li]()<sup>1</sup>, [Ariel Slapyan]()<sup>2</sup>,      [Nitish Thakor]()<sup>1,2</sup><br />
 <sup>1</sup> Department of Biomedical Engineering, Johns Hopkins School of Medicine<br />
 <sup>2</sup> Department of Electrical and Computer Engineering, Johns Hopkins University
 
