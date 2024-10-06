@@ -4,8 +4,8 @@
 
 [[Paper]()]
 
-[Dian Li](), [Ariel Slapyan]()<br />
-Johns Hopkins University
+[Dian Li<sup>1</sup>](), [Ariel Slapyan<sup>2</sup>]()<br />
+<sup>1</sup> Johns Hopkins University
 
 </div>
 
