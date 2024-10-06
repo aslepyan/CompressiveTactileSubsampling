@@ -26,7 +26,7 @@ Notes:
 3. 
 
 ## Subsampled Data Acquisition
-If you want to collect some tactile data in a subsampling manner, use the folder `Subsampling_Code\Subsampling_Basics\`. To sample tactile data, the user first needs to upload the file `Subsampling.ino` to the sensor after adjusting the parameters. After that, run `SubsamplingControl.m` with desirable parameters to sample data using various methods.
+If you want to collect some tactile data in a subsampling manner, use the folder `Subsampling_Code\Subsampling_Basics\`. To sample tactile data, the user first needs to upload `Subsampling.ino` to the sensor after adjusting the parameters. After that, run `SubsamplingControl.m` with desirable parameters to sample data using various methods.
 * `SubsamplingControl.m` is the main function for subsampling in three different modes: regular, random and binary.
 * `SubsamplingDisplay.m` is used to visualize the subsampled tactile image.
 * `downSamplingShift.m`, `randomSampling.m` and `binarySampling.m` are functions for regular, random and binary sampling methods, respectively.
