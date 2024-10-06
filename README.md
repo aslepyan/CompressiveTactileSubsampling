@@ -8,9 +8,9 @@
 [Ariel Slapyan](https://scholar.google.com/citations?hl=en&user=8uVwi4UAAAAJ&view_op=list_works&sortby=pubdate)<sup>2</sup>, 
 [Nitish Thakor](https://scholar.google.com/citations?user=SB_7Bi0AAAAJ&hl=en)<sup>1,2,3</sup>
 <br />
-<sup>1</sup> Department of Biomedical Engineering, Johns Hopkins School of Medicine<br />
-<sup>2</sup> Department of Electrical and Computer Engineering, Johns Hopkins University<br />
-<sup>3</sup> Department of Neurology, Johns Hopkins School of Medicine
+<sup>1</sup> Department of Biomedical Engineering, Johns Hopkins School of Medicine, Baltimore, USA<br />
+<sup>2</sup> Department of Electrical and Computer Engineering, Johns Hopkins University, Baltimore, USA<br />
+<sup>3</sup> Department of Neurology, Johns Hopkins School of Medicine, Baltimore, USA
 
 </div>
 
