@@ -40,7 +40,7 @@ The learned dictionary is trained by the patches randomly selected from the coll
 
 **Linear Interpolation Recovery**
 :
-Recovery using linear interpolation is a reconstruction of a function f ∈ ℝ<sup>2x1</sup> (e.g. a natural or tactile image) according to the values of some scattered points distributed in the 2D plane by using the linear method. To realize this task, we use a MATLAB function - ``scatteredInterpolant`` with ``'linear'`` as its ``Method``. <br />
+Recovery using linear interpolation is a reconstruction of a function f ∈ ℝ<sup>2x1</sup> (e.g. a natural or tactile image) according to the values of some scattered points distributed in the 2D plane by using the linear method. To realize this task, we use a MATLAB function - ``scatteredInterpolant`` with ``'linear'`` as its ``Method`` and ``ExtrapolationMethod``. <br />
 
 **Sparse Representation-based Classification (SRC)**
 :
