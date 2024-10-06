@@ -32,19 +32,19 @@ In random sampling, the sensor measures the force with the pixels with random po
 
 **Binary Subsampling Mode**
 :
-The binary sampling mode will define a logarithmic order of positions of measured pixels in the 2D sensor. If one of the pixels measures force larger than a threshold, the sensor will measure its surrounding pixels. This process will continue recursively until the force of all surrounding pixels is lower than the threshold. During this process, there is no repetitive measured pixel for each tactile frame.
+The binary sampling mode will define a logarithmic order of positions of measured pixels in the 2D sensor. If one of the pixels measures force larger than a threshold, the sensor will measure its surrounding pixels. This adaptive process will continue recursively until the force of all surrounding pixels is lower than the threshold. During this process, there is no repetitive measured pixel for each tactile frame.
 
 **Learned Dictionary Learning and its Recovery**
 :
-
+The learned dictionary is trained by the patches randomly selected from the collected full raster tactile images using the K-SVD method. The patches are of smaller size (e.g. 8x8 or 16x8) than the full 32x32 tactile images. Then, for each patch of subsampled tactile image, the ``FastOMP`` method rapidly encodes its sparse vector with the learned dictionary and its corresponding sensing matrix. After multiplying the sparse vector with the learned dictionary, we obtained the approximate full-raster patches of images. Last, we average the force values from the portions of overlapped patches.
 
 **Linear Interpolation Recovery**
 :
-
+Recovery using linear interpolation is a reconstruction of a function f ∈ ℝ<sup>2x1</sup> (e.g. a natural or tactile image) according to the values of some scattered points distributed in the 2D plane by using the linear method. To realize this task, we use a MATLAB function - ``scatteredInterpolant`` with ``'linear'`` as its ``Method``.
 
 **Sparse Representation-based Classification (SRC)**
 :
-library (a matrix with the flattened full-raster images as its columns) 
+In SRC, a library (a matrix with flattened full-raster images as its columns) is used to build an overcomplete library Θ.
 
 <div align="center">
     <img src="assets/principle.png" width="2000">
