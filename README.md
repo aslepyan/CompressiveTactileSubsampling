@@ -4,8 +4,9 @@
 
 [[Paper]()]
 
-[Dian Li<sup>1</sup>](), [Ariel Slapyan<sup>2</sup>]()<br />
-<sup>1</sup> Johns Hopkins University
+[Dian Li]()<sup>1</sup>, [Ariel Slapyan]()<sup>2</sup><br />
+<sup>1</sup> Department of Biomedical Engineering, Johns Hopkins School of Medicine
+<sup>2</sup> Department of Electrical and Computer Engineering, Johns Hopkins University
 
 </div>
 
