@@ -89,7 +89,7 @@ As for the real-time classification, first of all, the user is required to get t
 * `realTimeSimu.m` is used to determine the accuracy of reconstruction of full-raster tactile images in the simulation.
 * `realTimePlot.m` is used to plot some relevant figures related to this application. 
 
-## Rotation
+## Rotator
 The folder `Subsampling_Code\rotator` is for the application of fast detection of the pressure of a hard rotator on the sensor in varied frequencies.
 * The file `rot.m` analyzes the subsampled data of the rotator at different speeds (or frequencies) and generates a figure showing the single-sided amplitude spectrums.
 
