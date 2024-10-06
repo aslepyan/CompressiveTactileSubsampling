@@ -36,7 +36,7 @@ The binary sampling mode will define a logarithmic order of positions of measure
 
 **Learned Dictionary Learning and its Recovery**
 :
-The learned dictionary is trained by the patches randomly selected from the collected full raster tactile images using the K-SVD method. The patches are of smaller size (e.g. 8x8 or 16x8) than the full 32x32 tactile images. Then, for each patch of subsampled tactile image, the ``FastOMP`` method with the learned dictionary and its corresponding sensing matrix rapidly encodes its sparse vector. After multiplying the sparse vector with the learned dictionary, we obtained the approximate full-raster patches of images. Last, we average the force values from the portions of overlapped patches. <br />
+The learned dictionary is trained by the patches randomly selected from the collected full raster tactile images using the K-SVD method. The patches are of smaller size (e.g. 8x8 or 16x8) than the full 32x32 tactile images. Then, for each patch of subsampled tactile image, the ``FastOMP`` method with the learned dictionary and its corresponding sensing matrix rapidly encodes its sparse vector[^FastOMP]. After multiplying the sparse vector with the learned dictionary, we obtained the approximate full-raster patches of images. Last, we average the force values from the portions of overlapped patches[^ksvd]. <br />
 
 **Linear Interpolation Recovery**
 :
@@ -44,7 +44,7 @@ Recovery using linear interpolation is a reconstruction of a function f âˆˆ **â„
 
 **Sparse Representation-based Classification (SRC)**
 :
-In SRC, we first build a library, which is a matrix with flattened full-raster images as its columns. Each column of the library has a known class or label. Then, for a subsampled tactile image, the ``FastOMP`` method with the library and its corresponding sensing matrix rapidly encodes its sparse vector. After that, we compute the L2 reconstruction error using the coefficients of the sparse vector corresponding to each of the classes separately. The class that minimizes the L2 reconstruction error is selected to be the one for the tested tactile image.
+In SRC, we first build a library, which is a matrix with flattened full-raster images as its columns. Each column of the library has a known class or label. Then, for a subsampled tactile image, the ``FastOMP`` method with the library and its corresponding sensing matrix rapidly encodes its sparse vector. After that, we compute the L2 reconstruction error using the coefficients of the sparse vector corresponding to each of the classes separately. The class that minimizes the L2 reconstruction error is selected to be the one for the tested tactile image[^SRC].
 
 <div align="center">
     <img src="assets/principle.png" width="2000">
@@ -136,7 +136,9 @@ The folder `Subsampling_Code\rotator` is for the application of fast detection o
 We sincerely appreciate Becca Greene, Aidan Aug, Sriramana Sankar, and Trac Tran for their advice on this work.
 
 ## Contact
-If you have any questions or inquiries, please feel free to [contact me](mailto:aslepya1@jhu.edu).
+If you have any questions or inquiries, please feel free to contact this [email](mailto:aslepya1@jhu.edu).
 
 ## References
-
+[^SRC]: Robust face recognition via sparse representation
+[^FastOMP]: An Efficient FPGA Implementation of Orthogonal Matching Pursuit With Square-Root-Free QR Decomposition
+[^KSVD]: K-SVD: An Algorithm for Designing Overcomplete Dictionaries for Sparse Representation
