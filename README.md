@@ -128,6 +128,9 @@ As for the real-time classification, first of all, the user is required to get t
 The folder `Subsampling_Code\rotator` is for the application of fast detection of the pressure of a hard rotator on the sensor in varied frequencies. Firstly, users can directly use our data with permission, or they need to collect the tactile images of hard rotator by using the file `SubsamplingControl.m` with the binary subsampling mode. Then, they need to run each section of `rot.m` to process the subsampled data of the rotator and plot the single-sided amplitude spectrums shown in the paper.
 * The file `rot.m` analyzes the subsampled data of the rotator at different speeds (or frequencies) and generates the single-sided amplitude spectrums.
 
+### Instant Angle of Incidence
+
+
 ## Citation
 ```
     @article{,
