@@ -5,7 +5,7 @@
 [[Paper]()]
 
 [Dian Li (李典)]()<sup>1</sup>, 
-[Ariel Slapyan](https://scholar.google.com/citations?hl=en&user=8uVwi4UAAAAJ&view_op=list_works&sortby=pubdate)<sup>2</sup>, 
+[Ariel Slepyan](https://scholar.google.com/citations?hl=en&user=8uVwi4UAAAAJ&view_op=list_works&sortby=pubdate)<sup>2</sup>, 
 [Nitish Thakor](https://scholar.google.com/citations?user=SB_7Bi0AAAAJ&hl=en)<sup>1,2,3</sup>
 <br />
 <sup>1</sup> Department of Biomedical Engineering, Johns Hopkins School of Medicine, Baltimore, USA<br />
@@ -104,7 +104,7 @@ The folder `Subsampling_Code\projectile` is for the application of fast detectio
 
 ### Deformation
 The folder `Subsampling_Code\deform` is for the application of roughly drawing the shape of deformable objects. Firstly, users can directly use our data with permission, or they need to collect the tactile images of some deformable objects (e.g. deflated balloon or elastic objects) by using the file `SubsamplingControl.m` with the binary subsampling mode. Then, they need to run each section of `deformAnalysis.m` to process the subsampled data of those deformable objects and draw their rough shape, as shown in the paper.
-* The file `deformAnalysis` analyzes the subsampled data of deformable objects and generates a figure depicting their approximate shapes.
+* The file `deformAnalysis.m` analyzes the subsampled data of deformable objects and generates a figure depicting their approximate shapes.
 
 ### Real-time Reconstruction and Classification
 The folder `Subsampling_Code\realTime` is for the application of real-time reconstruction or classification without any data processing outside the sensor.<br />
@@ -129,7 +129,7 @@ The folder `Subsampling_Code\rotator` is for the application of fast detection o
 ## Citation
 ```
     @article{,
-      author    = {Dian Li and Ariel Slapyan and Nitish Thakor},
+      author    = {Dian Li and Ariel Slepyan and Nitish Thakor},
       title     = {Compressive Subsampling Improves Spatiotemporal Resolution of Tactile Skin through Embedded Software},
       journal   = {arXiv preprint arXiv:},
       year      = {2024},
