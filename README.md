@@ -4,16 +4,16 @@
 
 [[Paper]()]
 
-[Ariel Slepyan](https://scholar.google.com/citations?hl=en&user=8uVwi4UAAAAJ&view_op=list_works&sortby=pubdate)<sup>1</sup>, 
-[Dian Li (李典)]()<sup>2</sup>, 
+[Ariel Slepyan](https://scholar.google.com/citations?hl=en&user=8uVwi4UAAAAJ&view_op=list_works&sortby=pubdate)<sup>1</sup>†, 
+[Dian Li (李典)]()<sup>2</sup>†, 
 [Aidan Aug]()<sup>2</sup>, 
 [Trac Tran]()<sup>1</sup>, 
 [Nitish Thakor](https://scholar.google.com/citations?user=SB_7Bi0AAAAJ&hl=en)<sup>1,2,3</sup>
 <br />
 <sup>1</sup> Department of Electrical and Computer Engineering, Johns Hopkins University, Baltimore, USA<br />
 <sup>2</sup> Department of Biomedical Engineering, Johns Hopkins School of Medicine, Baltimore, USA<br />
-<sup>3</sup> Department of Neurology, Johns Hopkins School of Medicine, Baltimore, USA
-
+<sup>3</sup> Department of Neurology, Johns Hopkins School of Medicine, Baltimore, USA<br />
+†These authors contributed equally to this study.
 </div>
 
 > High-speed tactile arrays are crucial for real-time robotic control and reflex in unstructured environments. However, increased pixel counts lead to scanning latency, with large tactile arrays rarely exceeding 100 Hz readout rates. To address this, we develop an adaptive compressive tactile subsampling method that leverages patterns in tactile data to measure a few optimized projections of the tactile sensing matrix and classify or reconstruct the tactile interaction using an efficient sparse recovery algorithm and a learned overcomplete tactile dictionary. Testing on a 32x32 tactile sensor array, we evaluated reconstruction error and classification accuracy with 30 daily objects during high-speed interactions. Compressive tactile subsampling increased frame rates by 18X compared to the traditional raster scan method, maintaining accuracy with minimal error. These improvements enable tactile systems to detect objects within 20ms of contact with 88% accuracy and track high-velocity projectiles that raster scan completely misses. Our software-only method enhances standard arrays without hardware changes, allowing us to rapidly apply our technique to new tactile arrays that can be low-cost and robust – as we demonstrate for foam-bullet detection and plantar pressure profiling. The scalability of the approach holds promise for covering large areas of robots and surfaces with tactile skin. Compressive tactile subsampling can be immediately implemented in nearly any tactile sensor array to boost spatiotemporal resolution and enable new abilities.
