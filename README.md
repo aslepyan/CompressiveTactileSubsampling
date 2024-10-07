@@ -4,12 +4,14 @@
 
 [[Paper]()]
 
-[Dian Li (李典)]()<sup>1</sup>, 
-[Ariel Slepyan](https://scholar.google.com/citations?hl=en&user=8uVwi4UAAAAJ&view_op=list_works&sortby=pubdate)<sup>2</sup>, 
+[Ariel Slepyan](https://scholar.google.com/citations?hl=en&user=8uVwi4UAAAAJ&view_op=list_works&sortby=pubdate)<sup>1</sup>, 
+[Dian Li (李典)]()<sup>2</sup>, 
+[Aidan Aug]()<sup>2</sup>, 
+[Trac Tran]()<sup>1</sup>, 
 [Nitish Thakor](https://scholar.google.com/citations?user=SB_7Bi0AAAAJ&hl=en)<sup>1,2,3</sup>
 <br />
-<sup>1</sup> Department of Biomedical Engineering, Johns Hopkins School of Medicine, Baltimore, USA<br />
-<sup>2</sup> Department of Electrical and Computer Engineering, Johns Hopkins University, Baltimore, USA<br />
+<sup>1</sup> Department of Electrical and Computer Engineering, Johns Hopkins University, Baltimore, USA<br />
+<sup>2</sup> Department of Biomedical Engineering, Johns Hopkins School of Medicine, Baltimore, USA<br />
 <sup>3</sup> Department of Neurology, Johns Hopkins School of Medicine, Baltimore, USA
 
 </div>
