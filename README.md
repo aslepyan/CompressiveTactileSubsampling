@@ -18,7 +18,7 @@
 
 ![](assets/insole.mp4)
 
-https://github.com/user-attachments/assets/074ab0c5-fc5c-4ed2-8eb8-7264e2bc8155
+
 
 <div align="center">
     <img src="assets/overview.png" width="2000">
