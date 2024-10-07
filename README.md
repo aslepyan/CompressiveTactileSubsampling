@@ -18,12 +18,6 @@
 
 ![](assets/insole.gif)
 
-
-
-<div align="center">
-    <img src="assets/overview.png" width="2000">
-</div>
-
 ---
 ## Principles
 **Down-sampling Mode**
