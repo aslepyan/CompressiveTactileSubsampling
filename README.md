@@ -55,6 +55,9 @@ In SRC, we first build a library, which is a matrix with flattened full-raster i
 ## Usage
 The codes for using our methods for tactile image data and realizing our results are explained below. Notice that the user is required to contact the authors to get permission to access our data files. Some helper functions are not described here, but you can check the comments about their usage in the corresponding files.
 
+### Hardware
+
+
 ### Subsampled Data Acquisition
 If you want to collect some tactile data in a subsampling manner, use the folder `Subsampling_Code\Subsampling_Basics\`. To sample tactile data, the user first needs to upload `Subsampling.ino` to the sensor after adjusting the parameters. After that, run `SubsamplingControl.m` with desirable parameters to sample data using various methods.
 * `SubsamplingControl.m` is the main function for subsampling in three different modes: regular, random and binary.
