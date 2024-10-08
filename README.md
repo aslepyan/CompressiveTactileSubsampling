@@ -128,8 +128,11 @@ As for the real-time classification, first of all, the user is required to get t
 The folder `Subsampling_Code\rotator` is for the application of fast detection of the pressure of a hard rotator on the sensor in varied frequencies. Firstly, users can directly use our data with permission, or they need to collect the tactile images of hard rotator by using the file `SubsamplingControl.m` with the binary subsampling mode. Then, they need to run each section of `rot.m` to process the subsampled data of the rotator and plot the single-sided amplitude spectrums shown in the paper.
 * The file `rot.m` analyzes the subsampled data of the rotator at different speeds (or frequencies) and generates the single-sided amplitude spectrums.
 
-### Instant Angle of Incidence
-
+### Ricochet Angle
+The folder `Subsampling_Code\instant_angle` is for the demo of tracking the instant angle of incidence of a bouncing ball. You can directly run the file `instant_angle.m` to see the animation for tracking.
+* `instant_angle.m` is the main code for this demo.
+* `com.m` is a helper function that calculates the center of mass (COM) of the bouncing object.
+* `nameTransfer.m` is a helper function that converts the names for visualization.
 
 ## Citation
 ```
@@ -143,7 +146,7 @@ The folder `Subsampling_Code\rotator` is for the application of fast detection o
 ```
 
 ## Acknowledgement
-We sincerely appreciate Becca Greene, Aidan Aug, Sriramana Sankar, and Trac Tran for their advice on this work.
+We sincerely appreciate Becca Greene and Sriramana Sankar for their advice and help on this work.
 
 ## Contact
 If you have any questions or inquiries, please feel free to contact this [email](mailto:aslepya1@jhu.edu).
