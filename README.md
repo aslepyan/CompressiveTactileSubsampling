@@ -61,12 +61,12 @@ Some helper functions are not described here, but you can check the comments abo
 
 ### Data folders
 Download each data folder and put it into the current directory of `Subsampling_Code`. Each data folder is explained below.
-* `Deformation_Data` is the data folder for the application of detecting deformable objects;
-* `insole_data` is the data folder for the demo of the insole;
+* `Subsampling_Data` is the folder for the data folders of the 30 daily objects;
 * `Projectile_Data` is the data folder for the application of detecting the bouncing tennis ball (the projectile);
-* `ricochet_angle_data` is the data folder for the demo of determining the angles of incidence of ricochet;
+* `Deformation_Data` is the data folder for the application of detecting deformable objects;
 * `Rotator_Data` is the data folder for the application of the rotator;
-* `Subsampling_Data` is the folder for the data folders of the 30 daily objects.
+* `insole_data` is the data folder for the demo of the insole;
+* `ricochet_angle_data` is the data folder for the demo of determining the angles of incidence of ricochet.
 
 ### Hardware
 The PCB design files are located in the `PCB` folder. These files are designed in KiCAD and contain the schematic and layout for readout board (`PCB Files Readout Board`) and the 32x32 tactile sensor array (`PCB Files Tactile Sensor Array`).
