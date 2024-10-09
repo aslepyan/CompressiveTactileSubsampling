@@ -55,7 +55,9 @@ In SRC, we first build a library, which is a matrix with flattened full-raster i
 </div>
 
 ## Usage
-The codes for using our methods for tactile image data and realizing our results are explained below. Notice that the user is required to contact the authors to get permission to access our data files. Some helper functions are not described here, but you can check the comments about their usage in the corresponding files.
+The codes for using our methods for tactile image data and realizing our results are explained below. Notice that the user can access our data files through this 
+[link](https://livejohnshopkins-my.sharepoint.com/:f:/r/personal/aslepya1_jh_edu/Documents/compressive_tactile_sensor/raster/Subsampling?csf=1&web=1&e=xq17ip). 
+Some helper functions are not described here, but you can check the comments about their usage in the corresponding files.
 
 ### Hardware
 The PCB design files are located in the 'PCB' folder. These files are designed in KiCAD and contain the schematic and layout for readout board (PCB Files Readout Board) and the 32x32 tactile sensor array (PCB Files Tactile Sensor Array).
