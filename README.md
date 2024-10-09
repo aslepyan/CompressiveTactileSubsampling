@@ -147,6 +147,9 @@ The folder `Subsampling_Code\instant_angle` is for the demo of tracking the inst
 * `com.m` is a helper function that calculates the center of mass (COM) of the bouncing object;
 * `nameTransfer.m` is a helper function that converts the names for visualization.
 
+### Insole
+The folder `Subsampling_Code\insole` is for the demo of tactile images from an insole. You can check the subsampled and reconstructed images via `insoleVis.m`.
+
 ## Citation
 ```
     @article{,
