@@ -66,6 +66,7 @@ If you want to collect some tactile data in a subsampling manner, use the folder
 * `SubsamplingDisplay.m` is used to visualize the subsampled tactile image.
 * `downSamplingShift.m`, `randomSampling.m` and `binarySampling.m` are functions for regular, random and binary sampling methods, respectively.
 * `Subsampling` contains the Arduino code used to enable the sensor to execute subsampling tactile data within a designated duration.
+* `M_fs_plot.m` plots the relation between the sampling rate and the measurement level.
 
 ### Training Data Collection
 If you want to obtain training data, use the folder `Subsampling_Code\dict_training\`. The user can directly run the section in `trainData.m` according to the training image they need. The user can also run the last section to visualize the full raster training image they collected.
@@ -97,7 +98,7 @@ The folder `Subsampling_Code\classification` is for the classification of collec
 With the proposed sampling modes, reconstruction using a learned dictionary, and SRC, we have designed and conducted several experiments to investigate their feasibility and accuracy. Here, we explain the folders for these experiments.
 
 ### Generalizability
-The folder `Subsampling_Code\reconstruction` is also for the application of reconstruction of collected subsampled tactile data from objects that are not used to train a learned dictionary. Firstly, users need to collect some subsampled tactile images of their daily objects (e.g. keys or toothbrushes) by using the file `SubsamplingControl.m` explained above. Then, with the trained dictionary, they can recover the subsampled images using the above file `dictRecovery1.m`. Last, they can run `genReconAccPlot.m` to calculate the accuracies of the reconstructed images and plot some relevant figures shown in the paper. To prove the generalizability of our methods, the objects used to do the subsampling have NOT been used to train the learned dictionary for subsampled image recovery.
+The folder `Subsampling_Code\reconstruction` is also for the application of reconstruction of collected subsampled tactile data from objects that are not used to train a learned dictionary. Firstly, users need to collect some subsampled tactile images of their daily objects (e.g. keys or toothbrushes) by using the file `SubsamplingControl.m` explained above. Then, with the trained dictionary, they can recover the subsampled images using the above file `dictRecovery1.m`. Last, they can run `genReconAccPlot.m` to calculate the accuracies of the reconstructed images and plot some relevant figures shown in the paper. To prove the generalizability of our methods, the objects used to do the subsampling have NOT been used to train the learned dictionary for subsampled image recovery. Notice that the code responsible for the reconstruction of subsampled images allows the reconstruction of simulated images, which are raw subsampled images with horizontal or vertical locomotion.
 * The file `genReconAccPlot.m` calculates the accuracies of the reconstructed images and plots some relevant figures.
 
 ### Projectile
