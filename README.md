@@ -58,7 +58,7 @@ In SRC, we first build a library, which is a matrix with flattened full-raster i
 The codes for using our methods for tactile image data and realizing our results are explained below. Notice that the user is required to contact the authors to get permission to access our data files. Some helper functions are not described here, but you can check the comments about their usage in the corresponding files.
 
 ### Hardware
-
+The PCB design files are located in the 'PCB' folder. These files are designed in KiCAD and contain the schematic and layout for readout board (PCB Files Readout Board) and the 32x32 tactile sensor array (PCB Files Tactile Sensor Array).
 
 ### Subsampled Data Acquisition
 If you want to collect some tactile data in a subsampling manner, use the folder `Subsampling_Code\Subsampling_Basics\`. To sample tactile data, the user first needs to upload `Subsampling.ino` to the sensor after adjusting the parameters. After that, run `SubsamplingControl.m` with desirable parameters to sample data using various methods.
