@@ -1,6 +1,6 @@
 <div align="center">
 
-# Compressive Subsampling Improves Spatiotemporal Resolution of Tactile Skin through Embedded Software
+# Adaptive Subsampling and Learned Model Improves<br /> Spatiotemporal Resolution of Tactile Skin
 
 [[Paper]()]
 
@@ -16,7 +16,7 @@
 †These authors contributed equally to this study.
 </div>
 
-> High-speed tactile arrays are crucial for real-time robotic control and reflex in unstructured environments. However, increased pixel counts lead to scanning latency, with large tactile arrays rarely exceeding 100 Hz readout rates. To address this, we develop an adaptive compressive tactile subsampling method that leverages patterns in tactile data to measure a few optimized projections of the tactile sensing matrix and classify or reconstruct the tactile interaction using an efficient sparse recovery algorithm and a learned overcomplete tactile dictionary. Testing on a 32x32 tactile sensor array, we evaluated reconstruction error and classification accuracy with 30 daily objects during high-speed interactions. Compressive tactile subsampling increased frame rates by 18X compared to the traditional raster scan method, maintaining accuracy with minimal error. These improvements enable tactile systems to detect objects within 20ms of contact with 88% accuracy and track high-velocity projectiles that raster scan completely misses. Our software-only method enhances standard arrays without hardware changes, allowing us to rapidly apply our technique to new tactile arrays that can be low-cost and robust – as we demonstrate for foam-bullet detection and plantar pressure profiling. The scalability of the approach holds promise for covering large areas of robots and surfaces with tactile skin. Compressive tactile subsampling can be immediately implemented in nearly any tactile sensor array to boost spatiotemporal resolution and enable new abilities.
+> High-speed tactile arrays are essential for real-time robotic control in unstructured environments, but high pixel counts limit readout rates of most large tactile arrays to below 100Hz. We introduce ACTS—adaptive compressive tactile subsampling—a method that efficiently samples tactile matrices and reconstructs interactions using sparse recovery and a learned tactile dictionary. Tested on a 1024-pixel sensor array (32x32), ACTS increased frame rates by 18X compared to raster scanning, with minimal error. For the first time in large-area tactile skin, we demonstrate rapid object classification within 20ms of contact, high-speed projectile detection, ricochet angle estimation, and deformation tracking through enhanced spatiotemporal resolution. This scalable method can be implemented in firmware, transforming existing low-cost arrays and enabling robots to achieve high-resolution, full-body touch without hardware modifications.
 
 ![](assets/insole.gif)
 ![](assets/angle.gif)
