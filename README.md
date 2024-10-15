@@ -1,6 +1,6 @@
 <div align="center">
 
-# Adaptive Subsampling and Learned Model Improves<br /> Spatiotemporal Resolution of Tactile Skin
+# Adaptive Subsampling and Learned Model Improve<br /> Spatiotemporal Resolution of Tactile Skin
 
 [[Paper]()]
 
