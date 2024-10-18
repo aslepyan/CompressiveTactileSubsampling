@@ -14,7 +14,9 @@ msrNum=length(x);
 
 % initialize the 2d array for storage of contour coordinate points
 contourArr=[];
-
+if isempty(y)
+    return;
+end
 % initialize the 2d array for storage binary image of the raw data
 BW=false(32,32);
 
