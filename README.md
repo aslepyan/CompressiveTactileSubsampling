@@ -7,6 +7,7 @@
 [Ariel Slepyan](https://scholar.google.com/citations?hl=en&user=8uVwi4UAAAAJ&view_op=list_works&sortby=pubdate)<sup>1</sup>†, 
 [Dian Li (李典)]()<sup>2</sup>†, 
 [Aidan Aug]()<sup>2</sup>, 
+[Sriramana Sankar]()<sup>2</sup>, 
 [Trac Tran]()<sup>1</sup>, 
 [Nitish Thakor](https://scholar.google.com/citations?user=SB_7Bi0AAAAJ&hl=en)<sup>1,2,3</sup>
 <br />
@@ -130,12 +131,14 @@ As for the real-time classification, first of all, you need get the library thro
 * `realTimeBinaryReconPBP` contains the Arduino code to enable the sensor to sample the tactile data in real time by using the binary subsampling method, and to reconstruct the subsampled image by a learned dictionary patch by patch;
 * `realTimeBinaryReconPBPSimu` contains the Arduino code to enable the sensor to sample and reconstruct the full raster tactile data, which has been sampled and stored. This simulation aims to determine the accuracy of the real-time reconstruction method by a learned dictionary patch by patch;
 * `realTimeBinarySRC` contains the Arduino code to enable the sensor to sample the tactile data in real time using the binary subsampling method, and to classify the subsampled tactile image using the SRC method;
+* `realTimeBinarySRCSimu` contains the Arduino code to enable the sensor to sample and classify the full raster tactile data, which has been sampled and stored. This simulation aims to determine the accuracy of the real-time classification by SRC;
 * `dict2Arduino_recon.m` is used to transfer a learned dictionary and its corresponding helper matrices from MATLAB to the sensor;
 * `dict2Arduino_class.m` is used to transfer a library used in the SRC from MATLAB to the sensor;
 * `helperMat.m` is used to determine and store the helper matrices according to the learned dictionary which will be used in the real-time reconstruction later;
 * `realTimeVis.m` is used to visualize the real-time reconstruction;
-* `realTimeSimu.m` is used to determine the accuracy of reconstruction of full-raster tactile images in the simulation;
-* `realTimePlot.m` is used to plot some relevant figures related to this application. 
+* `realTimeReconSimu.m` is used to determine the accuracy of reconstruction of full-raster tactile images in the simulation;
+* `realTimeSRCSimu.m` is used to determine the accuracy of classification of full-raster tactile images in the simulation;
+* `realTimePlot.m` is used to plot all relevant figures related to this application. 
 
 ### Rotator
 The folder `Subsampling_Code\rotator` is for the application of fast detection of the pressure of a hard rotator on the sensor in varied frequencies. Firstly, you can directly use our data, or you need to collect the tactile images of hard rotator by using the file `SubsamplingControl.m` with the binary subsampling mode. Then, run each section of `rot.m` to process the subsampled data of the rotator and plot the single-sided amplitude spectrums shown in the paper.
@@ -162,7 +165,7 @@ The folder `Subsampling_Code\insole` is for the demo of tactile images from an i
 ```
 
 ## Acknowledgement
-We sincerely appreciate Becca Greene and Sriramana Sankar for their advice and help on this work.
+We sincerely appreciate Becca Greene, Prof. Jeremias Sulam and Prof. Jeremy Brown for their advice on this work.
 
 ## Contact
 If you have any questions or inquiries, please feel free to contact this [email](mailto:aslepya1@jhu.edu).
