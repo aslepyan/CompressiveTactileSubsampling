@@ -59,7 +59,8 @@ In SRC, we first build a library, which is a matrix with flattened full-raster i
 ## Usage
 The codes for using our methods for tactile image data and realizing our results are explained below. Notice that you can access our data files through this 
 [link](https://livejohnshopkins-my.sharepoint.com/:f:/r/personal/aslepya1_jh_edu/Documents/compressive_tactile_sensor/raster/Subsampling?csf=1&web=1&e=xq17ip). 
-Some helper functions are not described here, but you can check the comments about their usage in the corresponding files.
+Some helper functions are not described here, but you can check the comments about their usage in the corresponding files. <br />
+The folder `ksvdbox13` for training ksvd dictionary could be downloaded [here](https://csaws.cs.technion.ac.il/~ronrubin/software.html). This folder should be placed at `Subsampling_Code\`.
 
 ### Data folders
 Download each data folder and put it into the current directory of `Subsampling_Code`. Each data folder is explained below.
@@ -156,8 +157,8 @@ The folder `Subsampling_Code\insole` is for the demo of tactile images from an i
 ## Citation
 ```
     @article{,
-      author    = {Dian Li and Ariel Slepyan and Nitish Thakor},
-      title     = {Compressive Subsampling Improves Spatiotemporal Resolution of Tactile Skin through Embedded Software},
+      author    = {Ariel Slepyan and Dian Li and Nitish Thakor},
+      title     = {Adaptive Subsampling and Learned Model Improve Spatiotemporal Resolution of Tactile Skin},
       journal   = {arXiv preprint arXiv:},
       year      = {2024},
       url       = {}
@@ -165,7 +166,7 @@ The folder `Subsampling_Code\insole` is for the demo of tactile images from an i
 ```
 
 ## Acknowledgement
-We sincerely appreciate Becca Greene, Prof. Jeremias Sulam and Prof. Jeremy Brown for their advice on this work.
+We sincerely appreciate Becca Greene, Prof. Jeremias Sulam and Prof. Jeremy Brown for their advice on this work. We also many many thanks Dr. Ron Rubinstein for his code for training the ksvd dictionary.
 
 ## Contact
 If you have any questions or inquiries, please feel free to contact this [email](mailto:aslepya1@jhu.edu).
@@ -175,4 +176,3 @@ If you have any questions or inquiries, please feel free to contact this [email]
 [^FastOMP]: An Efficient FPGA Implementation of Orthogonal Matching Pursuit With Square-Root-Free QR Decomposition, 2018
 [^KSVD]: K-SVD: An Algorithm for Designing Overcomplete Dictionaries for Sparse Representation, 2006
 [^OMP]:  Matching pursuits with time-frequency dictionaries, 1993
-
