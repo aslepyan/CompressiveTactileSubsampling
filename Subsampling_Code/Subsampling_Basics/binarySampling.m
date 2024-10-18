@@ -2,7 +2,7 @@ function binarySampling()
 global M save_time data numWindow samplingMode numSensor numWindowTotal idxWindowTotal;
 
 port = serialportlist;
-s = serialport(port,12E6);
+s = serialport(port(1),12E6);
 flush(s);
 
 identity = 'binarySampling';
@@ -30,11 +30,11 @@ timePerFrameArr = [
     48, 849;
     49, 866;
     56, 991;
-    64, 1134;
+    64, 1106;
     66, 1170;
     77, 1367;
     88, 1564;
-    96, 1709;
+    96, 1647;
     112, 1917;
     121, 2161;
     128, 2288;
@@ -89,7 +89,7 @@ for idxM = 1:length(M)
             continue;
         end
 
-        if length(input)~=(total_num*2+1)
+        if length(input)~=(total_num*2+1+1)
             % sometimes > also happens, need to avoid.
             disp('read data error');
             
@@ -97,8 +97,10 @@ for idxM = 1:length(M)
         end
 
         % extract the pos and measurement
-        vals = double(input(1:end-1));
+        vals = double(input(1:end-2));
         data(:,1:(msrNum*num_frames),idxWindow,idxM,idxMode) = reshape(vals, 2, []);
+
+        disp(input(end-1));
 
         idxWindow = idxWindow+1;
         idxWindowTotal = idxWindowTotal+1;

@@ -2,7 +2,7 @@ function randomSampling()
 global M save_time data numWindow samplingMode numSensor numWindowTotal idxWindowTotal;save
 
 port = serialportlist;
-s = serialport(port,12E6);
+s = serialport(port(1),12E6);
 flush(s);
 
 identity = 'randomSampling';
@@ -129,7 +129,7 @@ for idxM = 1:length(M)
             writeline(s, 'stop'); % stop the main program of Arduino
 
             clear s
-            s = serialport(port,12E6);
+            s = serialport(port(1),12E6);
             disp('re-connected')
 
             flush(s)
@@ -138,7 +138,7 @@ for idxM = 1:length(M)
             continue;
         end
 
-        if length(input)~=(total_num+1)
+        if length(input)~=(total_num+1+1)
             disp('read data error');
             
             flush(s)
@@ -148,7 +148,9 @@ for idxM = 1:length(M)
         end
 
         % extract the val
-        data(2,1:(msrNum*num_frames),idxWindow,idxM,idxMode) = double(input(1:end-1));
+        data(2,1:(msrNum*num_frames),idxWindow,idxM,idxMode) = double(input(1:end-2));
+
+        disp(input(end-1));
 
         idxWindow = idxWindow+1;
         isSend=0;

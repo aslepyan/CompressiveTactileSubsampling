@@ -2,7 +2,7 @@ function downSamplingShift()
 global M save_time data numWindow samplingMode numSensor numWindowTotal idxWindowTotal;
 
 port = serialportlist;
-s = serialport(port,12E6);
+s = serialport(port(1),12E6);
 flush(s);
 
 identity = 'downSamplingShift';
@@ -29,7 +29,7 @@ timePerFrameArr = [
     256, 4508;
     352, 6197;
     512, 9019;
-    1024, 18078;
+    1024, 17509;
     ];
 
 % conversion table for relation between num of measured sensors (per frame)
@@ -185,14 +185,16 @@ for idxM = 1:length(M)
             continue;
         end
 
-        if length(input)~=(total_num+1)
+        if length(input)~=(total_num+2)
             disp('read data error');
 
             continue;
         end
 
         % extract the val
-        data(2,1:(msrNum*num_frames),idxWindow,idxM,idxMode) = double(input(1:end-1));
+        data(2,1:(msrNum*num_frames),idxWindow,idxM,idxMode) = double(input(1:end-2));
+
+        disp(input(end-1));
 
         idxWindow = idxWindow+1;
         idxWindowTotal = idxWindowTotal+1;

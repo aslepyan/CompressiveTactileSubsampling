@@ -2,15 +2,15 @@
 close all; clear; clc;
 crtpwd = pwd;
 upperpwd = fileparts(crtpwd);
-uupwd = fileparts(upperpwd);
+uupwd = fileparts(upperpwd);    
 
 nrow = 32; % number of rows; !!
 ncol = 32; % number of columns; !!
-touchThreshold = 50; % thr value for non touch of sensor; !!
+touchThreshold = 180; % thr value for non touch of sensor; !!
 
 % load data for visualization
-dataStorageFolder= 'Demo_Data'; % !!
-dataFolderName = 'angle_n135'; % !!
+dataStorageFolder= 'Deformation_Data'; % !!
+dataFolderName = 'balloon_FR'; % !!
 dataFileName = [dataFolderName, '.mat'];
 fullpath = fullfile(uupwd, dataStorageFolder, dataFolderName, dataFileName);
 disp('data loading...');
@@ -23,8 +23,8 @@ load("..\archieveData\footIndConv.mat") % !!
 figure;
 cmap = colormap; % get the current colormap
 new_cmap = [0 0 0; cmap]; % define the new colormap with black for the negative value
-valMin = -6; % negative value assigned to the unsampled pixels
-valMax = 300; % max value of measurement values
+valMin = -20; % negative value assigned to the unsampled pixels
+valMax = 1024; % max value of measurement values
 modeName = ["Down-Sampling","Random Sampling","Binary Sampling"]; % name of the subsampling method
 
 for modeNum = samplingMode
@@ -63,7 +63,7 @@ for modeNum = samplingMode
                 clim([valMin valMax]);
                 axis equal;
                 drawnow
-                pause(0.2)
+                % pause(0.2)
             end
         end
     end

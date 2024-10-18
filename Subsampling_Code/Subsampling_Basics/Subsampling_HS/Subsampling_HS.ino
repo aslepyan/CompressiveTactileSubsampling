@@ -9,7 +9,6 @@
 #define LEDpin 40 // pin number for LED
 #define maxNumMsr 200000 // max num of measurement for each window
 
-uint8_t ctrMsrArr[N][2]; // array for the points to be examined in the binary subsampling mode in order. 1st col is x axis (row num), 2nd col is y axis (col num).
 uint16_t msrPosArr[maxNumMsr]; // storage array of measurement for each window
 uint16_t* msrValArr = new uint16_t[maxNumMsr]; // storage of position for each window
 int idx = 0; // index of measurement in each frame; set zero for every frame
@@ -21,7 +20,6 @@ int lastmsrCol; // last column turned on for measurment
 int msr; // temp var for storage of measure
 int pos; // temp var for storage of position
 bool isSampled[N]; // lookup table for checking whether the pos has been checked in the current iteration
-int colOrd[3] = {0, -1, 1}; // column order for checking neighborhood of binary sampling mode
 unsigned long timer1; // variable for assessing consumed time
 uint8_t dpins[32] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32}; // table for the connected digital pins
 bool muxtable[32][5] = {
@@ -84,9 +82,6 @@ void setup() {
   for (int i = 0; i < 32; i++) {
     digitalWriteFast(dpins[i], LOW);
   }
-
-  // construct the array of centers we will go through
-  buildCtrArr();
 
   // initialize the isSampled arr
   for (int i = 0; i < N; i++) {
@@ -231,7 +226,7 @@ int findMax() {
   return sensorMax;
 }
 
-void buildCtrArr() {
+void buildCtrArr(uint16_t ctrMsrArr[N]) {
   // function for pre-determination of search order array of centers
   int maxNumItr = 10; // formula: 2*(log2(32*2/4)+1), need to change if sensor size change
 
@@ -248,8 +243,7 @@ void buildCtrArr() {
   int tempx1; // temp var for storage of new x pos
   int tempy1; // temp var for storage of new y pos
 
-  ctrMsrArr[myidx][0] = tempx / 2;
-  ctrMsrArr[myidx][1] = tempy / 2;
+  ctrMsrArr[myidx] = floor(tempx / 2) * 32 + floor(tempy / 2);
   myidx++;
 
   ctrHisArr[0][0] = tempx;
@@ -267,8 +261,7 @@ void buildCtrArr() {
         ctrCrtArr[2 * j][1] = tempy;
 
         if (notIn2d(ctrMsrArr, myidx, tempx1 / 2, tempy / 2)) {
-          ctrMsrArr[myidx][0] = tempx1 / 2;
-          ctrMsrArr[myidx][1] = tempy / 2;
+          ctrMsrArr[myidx] = floor(tempx1 / 2) * 32 + floor(tempy / 2);
           myidx++;
         }
 
@@ -277,8 +270,7 @@ void buildCtrArr() {
         ctrCrtArr[2 * j + 1][1] = tempy;
 
         if (notIn2d(ctrMsrArr, myidx, tempx1 / 2, tempy / 2)) {
-          ctrMsrArr[myidx][0] = tempx1 / 2;
-          ctrMsrArr[myidx][1] = tempy / 2;
+          ctrMsrArr[myidx] = floor(tempx1 / 2) * 32 + floor(tempy / 2);
           myidx++;
         }
       }
@@ -297,8 +289,7 @@ void buildCtrArr() {
         ctrCrtArr[2 * j][1] = tempy1;
 
         if (notIn2d(ctrMsrArr, myidx, tempx / 2, tempy1 / 2)) {
-          ctrMsrArr[myidx][0] = tempx / 2;
-          ctrMsrArr[myidx][1] = tempy1 / 2;
+          ctrMsrArr[myidx] = floor(tempx / 2) * 32 + floor(tempy1 / 2);
           myidx++;
         }
 
@@ -307,8 +298,7 @@ void buildCtrArr() {
         ctrCrtArr[2 * j + 1][1] = tempy1;
 
         if (notIn2d(ctrMsrArr, myidx, tempx / 2, tempy1 / 2)) {
-          ctrMsrArr[myidx][0] = tempx / 2;
-          ctrMsrArr[myidx][1] = tempy1 / 2;
+          ctrMsrArr[myidx] = floor(tempx / 2) * 32 + floor(tempy1 / 2);
           myidx++;
         }
       }
@@ -326,11 +316,11 @@ void buildCtrArr() {
   }
 }
 
-bool notIn2d(uint8_t a[][2], int len, int x, int y) {
+bool notIn2d(uint16_t a[], int len, int x, int y) {
   // this function judge the point (x,y) is not in the 2d array a, whose each row stores 2d coordinates.
   bool judge = true;
   for (int i = 0; i < len; i++) {
-    if (*(*(a + i) + 0) == x && *(*(a + i) + 1) == y) {
+    if (*(a + i) == (32 * x + y)) {
       judge = false;
       break;
     }
@@ -338,13 +328,33 @@ bool notIn2d(uint8_t a[][2], int len, int x, int y) {
   return judge;
 }
 
-int coord2DTo1D(int x1, int x2) {
-  // convert coordinates from 2d (0-31,0-31)to 1d (0-1023)
-  return 32 * x1 + x2;
-}
-
 void binarySampling() {
   // this function is for the implementation of the binary subsampling method
+  uint16_t ctrMsrArr[N]; // array for the points to be examined in the binary subsampling mode in order. 1st col is x axis (row num), 2nd col is y axis (col num).
+  buildCtrArr(ctrMsrArr); // construct the array of centers we will go through
+
+  uint16_t repMsrArr[N]; // array for binary for repeat points
+  uint16_t ind2Max = 0;
+  bool iniFr = false;
+  int iniFrInd = -1;
+  bool HS = false; // whether high speed projectile examination; !!
+
+  bool isNB[N];
+  for (int i = 0; i < N; i++) {
+    isNB[i] = false;
+  }
+  uint16_t nbArr[N]; // arr for ind of neighboring sampling
+  uint16_t ind3Max = 0; // for nbArr
+  uint16_t pos1;
+  int ir, ic; // row, col ind for neighboring sampling
+
+  bool isSampled1[N]; // as local var
+  for (int i = 0; i < N; i++) {
+    isSampled1[i] = false;
+  }
+
+  uint8_t tempx, tempy;
+
   lastmsrRow = 16; // 16 is 1st detected row in this case, but can be others
   lastmsrCol = 16;
 
@@ -359,19 +369,28 @@ void binarySampling() {
   digitalWriteFast(33, muxtable[lastmsrCol][4]);
 
   for (int frameNum = 0; frameNum < numFrame; frameNum++) {
-    int tempx;
-    int tempy;
+    uint16_t ind1 = 0, ind2 = 0, ind3 = 0; // ind1 for binary pattern points; ind2 for rep msr point; ind3 for neighbor points arr.
+    idx = 0; // current ind
 
-    idx = 0;
-
-    for (int i = 0; i < N; i++) {
+    while (1) {
       // extract each pos of center
-      tempx = ctrMsrArr[i][0];
-      tempy = ctrMsrArr[i][1];
-      pos = coord2DTo1D(tempx, tempy);
+      if (iniFrInd < frameNum && iniFr && ind2 < ind2Max) {
+        pos = repMsrArr[ind2];
+        ind2++;
+      }
+      else if (ind3 < ind3Max) {
+        pos = nbArr[ind3];
+        ind3++;
+      }
+      else {
+        pos = ctrMsrArr[ind1];
+        ind1++;
+      }
+      tempx = pos / 32;
+      tempy = pos % 32;
 
       // case when the center point has been examined
-      if (isSampled[pos]) continue;
+      if (isSampled1[pos]) continue;
 
       if (lastmsrRow != tempx) {
         digitalWriteFast(dpins[rowConv[lastmsrRow]], LOW); //turn the previous row low
@@ -390,8 +409,20 @@ void binarySampling() {
 
       msr = analogRead(A0);
 
+      // extract the tactile image of 1st non0 press for high speed projectile examination
+      if (HS) {
+        if (msr > mythreshold && (!iniFr || iniFrInd == frameNum)) {
+          repMsrArr[ind2Max] = pos;
+          ind2Max++;
+          if (!iniFr) {
+            iniFrInd = frameNum;
+            iniFr = true;
+          }
+        }
+      }
+
       msrPosArr[frameNum * M + idx] = pos;
-      isSampled[pos] = true;
+      isSampled1[pos] = true;
 
       msrValArr[frameNum * M + idx] = msr;
 
@@ -399,58 +430,131 @@ void binarySampling() {
       if (idx >= M) break; // case when max msr num is reached
 
       // case when msr > threshold, do the neighborhood examination
-      if (msr > mythreshold) {
-        neighborSampling(tempx, tempy, frameNum);
-        if (idx >= M) break; // case when max msr num is reached
+      if (msr > mythreshold && ind3Max < M) {
+        // Notice that w/o any loop (unrolling) for faster speed, there is 8 neighbors: N,S,W,E,NW,NE,SW,SE.
+        // N
+        ic = tempy;
+        if (ic >= 0 && ic < 32) {
+          ir = tempx - 1;
+          if (ir >= 0 && ir < 32) {
+            pos1 = 32 * ir + ic;
+            if (!(isNB[pos1] || isSampled1[pos1])) {
+              nbArr[ind3Max] = pos1;
+              ind3Max++;
+              isNB[pos1] = true;
+            }
+          }
+        }
+
+        // S
+        ic = tempy;
+        if (ic >= 0 && ic < 32) {
+          ir = tempx + 1;
+          if (ir >= 0 && ir < 32) {
+            pos1 = 32 * ir + ic;
+            if (!(isNB[pos1] || isSampled1[pos1])) {
+              nbArr[ind3Max] = pos1;
+              ind3Max++;
+              isNB[pos1] = true;
+            }
+          }
+        }
+
+        // NW
+        ic = tempy - 1;
+        if (ic >= 0 && ic < 32) {
+          ir = tempx - 1;
+          if (ir >= 0 && ir < 32) {
+            pos1 = 32 * ir + ic;
+            if (!(isNB[pos1] || isSampled1[pos1])) {
+              nbArr[ind3Max] = pos1;
+              ind3Max++;
+              isNB[pos1] = true;
+            }
+          }
+        }
+
+        // W
+        ic = tempy - 1;
+        if (ic >= 0 && ic < 32) {
+          ir = tempx;
+          if (ir >= 0 && ir < 32) {
+            pos1 = 32 * ir + ic;
+            if (!(isNB[pos1] || isSampled1[pos1])) {
+              nbArr[ind3Max] = pos1;
+              ind3Max++;
+              isNB[pos1] = true;
+            }
+          }
+        }
+
+        // SW
+        ic = tempy - 1;
+        if (ic >= 0 && ic < 32) {
+          ir = tempx + 1;
+          if (ir >= 0 && ir < 32) {
+            pos1 = 32 * ir + ic;
+            if (!(isNB[pos1] || isSampled1[pos1])) {
+              nbArr[ind3Max] = pos1;
+              ind3Max++;
+              isNB[pos1] = true;
+            }
+          }
+        }
+
+        // NE
+        ic = tempy + 1;
+        if (ic >= 0 && ic < 32) {
+          ir = tempx - 1;
+          if (ir >= 0 && ir < 32) {
+            pos1 = 32 * ir + ic;
+            if (!(isNB[pos1] || isSampled1[pos1])) {
+              nbArr[ind3Max] = pos1;
+              ind3Max++;
+              isNB[pos1] = true;
+            }
+          }
+        }
+
+        // E
+        ic = tempy + 1;
+        if (ic >= 0 && ic < 32) {
+          ir = tempx;
+          if (ir >= 0 && ir < 32) {
+            pos1 = 32 * ir + ic;
+            if (!(isNB[pos1] || isSampled1[pos1])) {
+              nbArr[ind3Max] = pos1;
+              ind3Max++;
+              isNB[pos1] = true;
+            }
+          }
+        }
+
+        // SE
+        ic = tempy + 1;
+        if (ic >= 0 && ic < 32) {
+          ir = tempx + 1;
+          if (ir >= 0 && ir < 32) {
+            pos1 = 32 * ir + ic;
+            if (!(isNB[pos1] || isSampled1[pos1])) {
+              nbArr[ind3Max] = pos1;
+              ind3Max++;
+              isNB[pos1] = true;
+            }
+          }
+        }
+        /********************************/
       }
     }
     // reset isSample arr
     for (int i = 0; i < M; i++) {
-      isSampled[msrPosArr[frameNum * M + i]] = false;
+      isSampled1[msrPosArr[frameNum * M + i]] = false;
     }
+    for (int i = 0; i < ind3Max; i++) {
+      isNB[nbArr[i]] = false;
+    }
+    ind3Max = 0;
   }
   // turn the row of last measured sensor to low.
   digitalWriteFast(dpins[rowConv[lastmsrRow]], LOW);
-}
-
-void neighborSampling(int centerX, int centerY, int frameNum) {
-  // This function is for the implementation of the neighbor sampling algorithm. It will recursively search the neighbors which greater than the threshold value.
-  for (int jj = 0; jj < 3; jj++) {
-    int j = centerY + colOrd[jj];
-    if (j < 0 || j >= 32) continue;
-    for (int i = centerX - 1; i <= centerX + 1; i++) {
-      if (i < 0 || i >= 32) continue;
-      pos = coord2DTo1D(i, j);
-
-      if (isSampled[pos]) continue;
-
-      if (lastmsrCol != j) {
-        digitalWriteFast(37, muxtable[j][0]);
-        digitalWriteFast(36, muxtable[j][1]);
-        digitalWriteFast(35, muxtable[j][2]);
-        digitalWriteFast(34, muxtable[j][3]);
-        digitalWriteFast(33, muxtable[j][4]);
-        lastmsrCol = j;
-      }
-
-      if (lastmsrRow != i) {
-        digitalWriteFast(dpins[rowConv[lastmsrRow]], LOW); //turn the previous row low
-        digitalWriteFast(dpins[rowConv[i]], HIGH); // turn the current row high
-        lastmsrRow = i;
-      }
-
-      msr = analogRead(A0);
-
-      msrPosArr[frameNum * M + idx] = pos;
-      isSampled[pos] = true;
-
-      msrValArr[frameNum * M + idx] = msr;
-
-      idx++;
-      if (idx >= M) return; // case when max msr num is reached
-
-      if (msr > mythreshold) neighborSampling(i, j, frameNum);
-      if (idx >= M) return; // case when max msr num is reached
-    }
-  }
 }

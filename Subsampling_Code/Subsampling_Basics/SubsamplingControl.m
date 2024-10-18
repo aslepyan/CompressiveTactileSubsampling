@@ -28,8 +28,8 @@ MNumFrameProd = 2e5; % threshold total num of msr sensors per window (2s is 2e5)
 % M = [42,48,49,56,64,66,77,88,96,112,121,128,160,176,192,224,256,352,512,];
 % M = [64,66,77,88,96,112,121,128,160,176,192,224,256,352,512,];
 % M = [64,128,256,512];
-M=48;
-% M = [88,128,256,352,512];
+M=88;
+% M = [64,88,128,256,352,512];
 
 numM = length(M); % num of diff cases of num of measured sensors per frame
 
@@ -65,8 +65,8 @@ for idxMode = 1:length(samplingMode)
 end
 
 % save the subsampled data
-dataStorageFolder= 'Demo_Data'; % !!
-dataFolderName = 'angle_n45'; % !!
+dataStorageFolder= 'Deformation_Data'; % !!
+dataFolderName = 'zz'; % !!
 dataFileName = [dataFolderName, '.mat'];
 dataFolderPath = fullfile(uupwd, dataStorageFolder, dataFolderName);
 dataFilePath = fullfile(uupwd, dataStorageFolder, dataFolderName, dataFileName);
