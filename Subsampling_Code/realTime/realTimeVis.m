@@ -6,7 +6,7 @@ thr = 180; % !!
 
 clear s
 port = serialportlist;
-s = serialport(port,12E6);
+s = serialport(port(1),12E6);
 flush(s);
 
 f = figure;
@@ -15,7 +15,7 @@ while(1)
     try
         input = split(readline(s),',');
     catch
-        s = serialport(port,12E6);
+        s = serialport(port(1),12E6);
         disp('re-connected')
         flush(s)
     end

@@ -1,4 +1,4 @@
-// This file is the arduino code for the real-time implementation of the binary subsampling method and the SRC algorithm.
+// This file is the arduino code for the simulation of the real-time application of the binary subsampling method and the SRC algorithm.
 // Notes:
 // 1. Update the values of variables "M", "K", "nObj", "S" and "thr";
 // 2. To implement the real-time implementation of the binary subsampling algorithm and display the class SRC algorithm
@@ -8,14 +8,17 @@
 #include <math.h>
 
 #define N 1024 // number of sensors
-#define thr 180 // threshold for the initiation of neighborSampling, !!
+#define thr 50 // threshold for the initiation of neighborSampling, !!
 #define M 150 // number of measurement for each frame, !!
 
-static const int K = 120; // size of dictionary !!
-static const int S = 2;  // Sparsity level, !!
+static const int K = 30; // size of dictionary !!
+static const int S = 4;  // Sparsity level, !!
 float Psi[N][K]; // dictionary for the whole image
 static const int nObj = 30; // num of objects !!
 int kObj = K / nObj; // size of dictionary !!
+uint16_t simuImg[N]; // pre-collected tactile image of simulation
+bool ini = false; // var for judging whether initialize the process of subsampling; turn on/off by matlab command via the serial port
+bool ini2 = false; // initialize the simulation after receiving a full raster image
 const char* objName[] = {
   "AAABattery",
   "J",
@@ -317,37 +320,50 @@ void setup() {
 
 FASTRUN void loop() {
   // receive the dictionary from the matlab for the real-time classification
-  if (Serial.available() > 0) {
-    Serial.readBytes((char*)Psi, N * K * sizeof(float));
+  if (!ini) {
+    if (Serial.available() > 0) {
+      Serial.readBytes((char*)Psi, N * K * sizeof(float));
+      ini = true;
+    }
   }
 
-  timer1 = micros();
+  if (ini) {
+    // receive a full raster image for simulation
+    if (Serial.available() > 0) {
+      Serial.readBytes((char*)simuImg, N * sizeof(uint16_t));
+      ini2 = true;
+    }
+    if (ini2) {
+      timer1 = micros();
 
-  // subsampling
-  unsigned long timer2 = micros();
-  binarySampling();
-  timer2 = micros() - timer2;
-  Serial.print("bin dur: ");
-  Serial.println(timer2);
+      // subsampling
+      unsigned long timer2 = micros();
+      binarySampling();
+      timer2 = micros() - timer2;
+      Serial.print("bin dur: ");
+      Serial.println(timer2);
 
-  // sparse coding and SRC
-  unsigned long timer3 = micros();
-  FastOMP(Psi, msrPosArr, msrValArr);
-  timer3 = micros() - timer3;
-  Serial.print("Classification dur: ");
-  Serial.println(timer3);
+      // sparse coding and SRC
+      unsigned long timer3 = micros();
+      FastOMP(Psi, msrPosArr, msrValArr);
+      timer3 = micros() - timer3;
+      Serial.print("Classification dur: ");
+      Serial.println(timer3);
 
-  timer1 = micros() - timer1;
+      timer1 = micros() - timer1;
 
-  // display the name of the recognized class
-  dataDisp();
-  Serial.println(timer1 * 1e-3); // unit: ms
-  Serial.println(); // cheack the time per frame.
+      // display the name of the recognized class
+      dataDisp();
+      Serial.print(timer1);
+      Serial.println(); // cheack the time per frame.
+      ini2 = false;
+    }
+  }
 }
 
 void dataDisp() {
   // display the name of the recognized class
-  Serial.print(objName[RTclass]);
+  Serial.print(RTclass+1); // Note: only transfer the ind of class, not the text of the name !!
   Serial.print(',');
   delayMicroseconds(5);
 }
@@ -497,7 +513,7 @@ void binarySampling() {
       lastmsrCol = tempy;
     }
 
-    msr = analogRead(A0);
+    msr = simuImg[pos];
 
     msrPosArr[idx] = pos;
     isSampled[pos] = true;
@@ -552,7 +568,7 @@ void neighborSampling(int centerX, int centerY) {
         lastmsrRow = i;
       }
 
-      msr = analogRead(A0);
+      msr = simuImg[pos];
 
       msrPosArr[idx] = pos;
       isSampled[pos] = true;

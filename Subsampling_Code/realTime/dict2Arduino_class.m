@@ -19,7 +19,7 @@ Psi(abs(Psi)<thrDict)=0;
 % connect the arduino and upload the data
 clear s;
 port = serialportlist;
-s = serialport(port,12E6);
+s = serialport(port(1),12E6);
 flush(s);
 write(s, reshape(Psi', 1, []), 'single');
 clear s;
