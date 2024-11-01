@@ -57,7 +57,7 @@ Some helper functions are not described here, but you can check the comments abo
 The folder `ksvdbox13` for training ksvd dictionary could be downloaded [here](https://csaws.cs.technion.ac.il/~ronrubin/software.html). This folder should be placed at `Subsampling_Code\`.
 
 ### Data folders
-Download each data folder and put it into the current directory of `Subsampling_Code`. Each data folder is explained below.
+Download each data folder and put it into the directory `data\`. Each data folder is explained below.
 * `Subsampling_Data` is the folder for the data folders of the 30 daily objects;
 * `Projectile_Data` is the data folder for the application of detecting the bouncing tennis ball (the projectile);
 * `Deformation_Data` is the data folder for the application of detecting deformable objects;
