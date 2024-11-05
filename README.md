@@ -5,7 +5,7 @@
 [[Paper](https://arxiv.org/abs/2410.13847)]
 
 [Ariel Slepyan](https://scholar.google.com/citations?hl=en&user=8uVwi4UAAAAJ&view_op=list_works&sortby=pubdate)<sup>1</sup>†, 
-[Dian Li (李典)]()<sup>2</sup>†, 
+[Dian Li (李典)](https://scholar.google.com/citations?view_op=list_works&hl=en&user=L_5PIfgAAAAJ)<sup>2</sup>†, 
 [Aidan Aug]()<sup>2</sup>, 
 [Sriramana Sankar]()<sup>2</sup>, 
 [Trac Tran]()<sup>1</sup>, 
