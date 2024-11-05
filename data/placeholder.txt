@@ -1,1 +1,8 @@
-
+Our data files are at this link: https://livejohnshopkins-my.sharepoint.com/:f:/g/personal/aslepya1_jh_edu/EjxrHBfSJDROho7Z2A9AB-YBlOvvXvdET3gtHFjB1QXo9g?e=V1dY6P
+Download each data folder and put it into the directory data\. Each data folder is explained below.
+Subsampling_Data is the folder for the data folders of the 30 daily objects;
+Projectile_Data is the data folder for the application of detecting the bouncing tennis ball (the projectile);
+Deformation_Data is the data folder for the application of detecting deformable objects;
+Rotator_Data is the data folder for the application of the rotator;
+insole_data is the data folder for the demo of the insole;
+ricochet_angle_data is the data folder for the demo of determining the angles of incidence of ricochet.
