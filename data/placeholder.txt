@@ -6,3 +6,12 @@ Deformation_Data is the data folder for the application of detecting deformable 
 Rotator_Data is the data folder for the application of the rotator;
 insole_data is the data folder for the demo of the insole;
 ricochet_angle_data is the data folder for the demo of determining the angles of incidence of ricochet.
+
+The storage data structure for the subsampling tactile data is a 5-D array.
+Dim 1: Store the corresponding coord and data (pressure) value.
+Dim 2: For each measured sensor in one frame and for each frame in one window
+Dim 3: For each window under idxM and idxMode
+Dim 4: For each case with a specific num of measured sensors per frame
+Dim 5: For each sampling mode
+Note: For each idxM and idxMode, the num of measured sensors and the num of frames per window are different, so we need to indicate them.
+Therefore, data(1,end,1,idxM,idxMode) specifies sampling rate (fs).
