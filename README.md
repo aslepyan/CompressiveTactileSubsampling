@@ -52,9 +52,9 @@ In SRC, we first build a library, which is a matrix with flattened full-raster i
 
 ## Usage
 The codes for using our methods for tactile image data and realizing our results are explained below. Notice that you can access our data files through this 
-[link](https://livejohnshopkins-my.sharepoint.com/:f:/r/personal/aslepya1_jh_edu/Documents/compressive_tactile_sensor/raster/Subsampling?csf=1&web=1&e=xq17ip). 
+[link](https://livejohnshopkins-my.sharepoint.com/:f:/g/personal/aslepya1_jh_edu/EjxrHBfSJDROho7Z2A9AB-YBlOvvXvdET3gtHFjB1QXo9g?e=V1dY6P). 
 Some helper functions are not described here, but you can check the comments about their usage in the corresponding files. <br />
-The folder `ksvdbox13` for training ksvd dictionary could be downloaded [here](https://csaws.cs.technion.ac.il/~ronrubin/software.html). This folder should be placed at `Subsampling_Code\`.
+The folder `ksvdbox13` for training ksvd dictionary could be downloaded [here](https://csaws.cs.technion.ac.il/~ronrubin/software.html). This folder should be placed at `code\`.
 
 ### Data folders
 Download each data folder and put it into the directory `data\`. Each data folder is explained below.
@@ -69,7 +69,7 @@ Download each data folder and put it into the directory `data\`. Each data folde
 The PCB design files are located in the `PCB` folder. These files are designed in KiCAD and contain the schematic and layout for readout board (`PCB Files Readout Board`) and the 32x32 tactile sensor array (`PCB Files Tactile Sensor Array`).
 
 ### Subsampled Data Acquisition
-If you want to collect some tactile data in a subsampling manner, use the folder `Subsampling_Code\Subsampling_Basics\`. To sample tactile data, upload `Subsampling.ino` to the sensor after adjusting the parameters. After that, run `SubsamplingControl.m` with desirable parameters to sample data using various methods.
+If you want to collect some tactile data in a subsampling manner, use the folder `code\basics\`. To sample tactile data, upload `Subsampling.ino` to the sensor after adjusting the parameters. After that, run `SubsamplingControl.m` with desirable parameters to sample data using various methods.
 * `SubsamplingControl.m` is the main function for subsampling in three different modes: regular, random and binary;
 * `SubsamplingDisplay.m` is used to visualize the subsampled tactile image;
 * `downSamplingShift.m`, `randomSampling.m` and `binarySampling.m` are functions for regular, random and binary sampling methods, respectively;
@@ -77,11 +77,11 @@ If you want to collect some tactile data in a subsampling manner, use the folder
 * `M_fs_plot.m` plots the relation between the sampling rate and the measurement level.
 
 ### Training Data Collection
-If you want to obtain training data, use the folder `Subsampling_Code\dict_training\`. Run the section in `trainData.m` according to the training image you need. You can also run the last section to visualize the full raster training image you collected.
+If you want to obtain training data, use the folder `code\dict_training\`. Run the section in `trainData.m` according to the training image you need. You can also run the last section to visualize the full raster training image you collected.
 * `trainData.m` is responsible for collecting the training data and it also enables you to see the tactile image you collected.
 
 ### Tactile Dictionary Training
-The folder `Subsampling_Code\dict_training\` is also for the task of training dictionary, it allows to train three types of dictionary: learned dictionary, DCT dictionary and Haar dictionary (square and overcomplete). You can acquire all types of dictionaries by running the following MATLAB files. If you want to recover subsampled images as a whole,  run `dictCombine.m` to get the assembled dictionaries for the whole subsampled images.
+The folder `code\dict_training\` is also for the task of training dictionary, it allows to train three types of dictionary: learned dictionary, DCT dictionary and Haar dictionary (square and overcomplete). You can acquire all types of dictionaries by running the following MATLAB files. If you want to recover subsampled images as a whole,  run `dictCombine.m` to get the assembled dictionaries for the whole subsampled images.
 * `dictTraining_ksvd.m` is for training the learned dictionary based on your training data;
 * `dictTraining_DCT.m` is used to train the DCT dictionary;
 * `dictTraining_Haar.m` is used to train the square Haar dictionary (i.e. the number of patch measurements equals to the dictionary size);
@@ -89,7 +89,7 @@ The folder `Subsampling_Code\dict_training\` is also for the task of training di
 * `dictCombine.m` combines several patch dictionaries together to recover subsampled tactile images as a whole.
 
 ### Subsampled Image Recovery
-The folder `Subsampling_Code\reconstruction` is for the reconstruction of collected subsampled tactile data. First, recover the subsampled data using various methods (dictionaries or interpolation) by running the following MATLAB files. Then, you can check the reconstructed images using the file `recDataDisplay.m`. Last, run `reconAccPlot.m` to calculate the accuracies of the reconstructed images and plot some relevant figures shown in the paper.
+The folder `code\reconstruction` is for the reconstruction of collected subsampled tactile data. First, recover the subsampled data using various methods (dictionaries or interpolation) by running the following MATLAB files. Then, you can check the reconstructed images using the file `recDataDisplay.m`. Last, run `reconAccPlot.m` to calculate the accuracies of the reconstructed images and plot some relevant figures shown in the paper.
 * `dictRecovery1.m` is used to reconstruct the tactile image patch by patch by using various types of dictionaries;
 * `dictRecovery2.m` is used to reconstruct the tactile image as a whole by using various types of dictionaries;
 * `interpRecovery1.m` is used to reconstruct the tactile image by using linear interpolation;
@@ -97,7 +97,7 @@ The folder `Subsampling_Code\reconstruction` is for the reconstruction of collec
 * `reconAccPlot.m` is used to calculate the accuracies of the reconstructed images and plot some relevant figures. Here, the objects used to do the subsampling have also been used to train the learned dictionary for subsampled image recovery.
 
 ### Subsampled Image Classification
-The folder `Subsampling_Code\classification` is for the classification of collected subsampled tactile data. Firstly, run `libTraining.m` to acquire the library for SRC. Then, run each section of `SRC.m` to conduct SRC, calculate accuracies or realize some figures in the paper. Besides, the code for the visualization of the library is also provided. Here, the objects used for subsampling have also been used to form the library for subsampled image classification.
+The folder `code\classification` is for the classification of collected subsampled tactile data. Firstly, run `libTraining.m` to acquire the library for SRC. Then, run each section of `SRC.m` to conduct SRC, calculate accuracies or realize some figures in the paper. Besides, the code for the visualization of the library is also provided. Here, the objects used for subsampling have also been used to form the library for subsampled image classification.
 * `libTraining.m` is used to construct a library for SRC;
 * `libVis.m` visualizes the library;
 * `SRC.m` is used to determine the classes the reconstructed images belong to, calculate the accuracies of the classification of different sampling modes and measurement levels, as well as plot some relevant figures.
@@ -106,19 +106,19 @@ The folder `Subsampling_Code\classification` is for the classification of collec
 With the proposed sampling modes, reconstruction using a learned dictionary, and SRC, we have designed and conducted several experiments to investigate their feasibility and accuracy. Here, we explain the folders for these experiments.
 
 ### Generalizability
-The folder `Subsampling_Code\reconstruction` is also for the application of reconstruction of collected subsampled tactile data from objects that are not used to train a learned dictionary. Firstly, collect some subsampled tactile images of your daily objects (e.g. keys or toothbrushes) by using the file `SubsamplingControl.m` explained above. Then, with the trained dictionary, recover the subsampled images using the above file `dictRecovery1.m`. Last, run `genReconAccPlot.m` to calculate the accuracies of the reconstructed images and plot some relevant figures shown in the paper. To prove the generalizability of our methods, the objects used to do the subsampling have NOT been used to train the learned dictionary for subsampled image recovery. Notice that the code responsible for the reconstruction of subsampled images allows the reconstruction of simulated images, which are raw subsampled images with horizontal or vertical locomotion.
+The folder `code\reconstruction` is also for the application of reconstruction of collected subsampled tactile data from objects that are not used to train a learned dictionary. Firstly, collect some subsampled tactile images of your daily objects (e.g. keys or toothbrushes) by using the file `SubsamplingControl.m` explained above. Then, with the trained dictionary, recover the subsampled images using the above file `dictRecovery1.m`. Last, run `genReconAccPlot.m` to calculate the accuracies of the reconstructed images and plot some relevant figures shown in the paper. To prove the generalizability of our methods, the objects used to do the subsampling have NOT been used to train the learned dictionary for subsampled image recovery. Notice that the code responsible for the reconstruction of subsampled images allows the reconstruction of simulated images, which are raw subsampled images with horizontal or vertical locomotion.
 * The file `genReconAccPlot.m` calculates the accuracies of the reconstructed images and plots some relevant figures.
 
 ### Projectile
-The folder `Subsampling_Code\projectile` is for the application of fast detection of a tennis ball (as a projectile) onto the sensor. Firstly, you can directly use our data, or you need to collect the tactile images of the bouncing tennis ball by using the file `SubsamplingControl.m` with the binary subsampling mode. Then, run each section of `projectileAnalysis.m` to process the projectile's subsampled data and plot the figures shown in the paper.
+The folder `code\projectile` is for the application of fast detection of a tennis ball (as a projectile) onto the sensor. Firstly, you can directly use our data, or you need to collect the tactile images of the bouncing tennis ball by using the file `SubsamplingControl.m` with the binary subsampling mode. Then, run each section of `projectileAnalysis.m` to process the projectile's subsampled data and plot the figures shown in the paper.
 * The file `projectileAnalysis.m` analyzes the projectile's subsampled data and generates some figures.
 
 ### Deformation
-The folder `Subsampling_Code\deform` is for the application of roughly drawing the shape of deformable objects. Firstly, you can directly use our data, or you need to collect the tactile images of some deformable objects (e.g. deflated balloon or elastic objects) by using the file `SubsamplingControl.m` with the binary subsampling mode. Then, run each section of `deformAnalysis.m` to process the subsampled data of those deformable objects and draw their rough shape, as shown in the paper.
+The folder `code\deform` is for the application of roughly drawing the shape of deformable objects. Firstly, you can directly use our data, or you need to collect the tactile images of some deformable objects (e.g. deflated balloon or elastic objects) by using the file `SubsamplingControl.m` with the binary subsampling mode. Then, run each section of `deformAnalysis.m` to process the subsampled data of those deformable objects and draw their rough shape, as shown in the paper.
 * The file `deformAnalysis.m` analyzes the subsampled data of deformable objects and generates a figure depicting their approximate shapes.
 
 ### Real-time Reconstruction and Classification
-The folder `Subsampling_Code\realTime` is for the application of real-time reconstruction or classification without any data processing outside the sensor.<br />
+The folder `code\realTime` is for the application of real-time reconstruction or classification without any data processing outside the sensor.<br />
 To realize the real-time reconstruction, firstly, you need to have a reasonably learned dictionary using the K-SVD method. After adjusting some parameters, you need to upload the `realTimeBinaryReconPBP.ino` to the sensor. Then, run the `helperMat.m` and `dict2Arduino_recon.m` to transfer the dictionary and its helper matrices to the sensor. Finally, you can visualize the real-time tactile images by using `realTimeVis.m`.<br />
 For its simulation, you need to upload the file named `realTimeBinaryReconPBP.ino` and determine the accuracy by using the `realTimeSimu.m`, while all the remaining operations are the same as the real-time reconstruction.<br />
 As for the real-time classification, first of all, you need get the library through `libTraining.m` as mentioned above. After adjusting some parameters, upload the `realTimeBinarySRC.ino` to the sensor. Then, run the `dict2Arduino_class.m` to transfer the library to the sensor. Last, visualize the real-time classification through the serial monitor in the Arduino.
@@ -136,17 +136,17 @@ As for the real-time classification, first of all, you need get the library thro
 * `realTimePlot.m` is used to plot all relevant figures related to this application. 
 
 ### Rotator
-The folder `Subsampling_Code\rotator` is for the application of fast detection of the pressure of a hard rotator on the sensor in varied frequencies. Firstly, you can directly use our data, or you need to collect the tactile images of hard rotator by using the file `SubsamplingControl.m` with the binary subsampling mode. Then, run each section of `rot.m` to process the subsampled data of the rotator and plot the single-sided amplitude spectrums shown in the paper.
+The folder `code\rotator` is for the application of fast detection of the pressure of a hard rotator on the sensor in varied frequencies. Firstly, you can directly use our data, or you need to collect the tactile images of hard rotator by using the file `SubsamplingControl.m` with the binary subsampling mode. Then, run each section of `rot.m` to process the subsampled data of the rotator and plot the single-sided amplitude spectrums shown in the paper.
 * The file `rot.m` analyzes the subsampled data of the rotator at different speeds (or frequencies) and generates the single-sided amplitude spectrums.
 
 ### Ricochet Angle
-The folder `Subsampling_Code\instant_angle` is for the demo of tracking the instant angle of incidence of a bouncing ball. You can directly run the file `instant_angle.m` to see the animation for tracking.
+The folder `code\instant_angle` is for the demo of tracking the instant angle of incidence of a bouncing ball. You can directly run the file `instant_angle.m` to see the animation for tracking.
 * `instant_angle.m` is the main code for this demo;
 * `com.m` is a helper function that calculates the center of mass (COM) of the bouncing object;
 * `nameTransfer.m` is a helper function that converts the names for visualization.
 
 ### Insole
-The folder `Subsampling_Code\insole` is for the demo of tactile images from an insole. You can check the subsampled and reconstructed images via `insoleVis.m`.
+The folder `code\insole` is for the demo of tactile images from an insole. You can check the subsampled and reconstructed images via `insoleVis.m`.
 
 ## Citation
 ```
