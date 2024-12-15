@@ -37,13 +37,18 @@ The PCB design files are located in the `PCB` folder. These files are designed i
 
 ### Subsampled Data Acquisition
 If you want to collect some tactile data in a subsampling manner, use the folder `code\basics\`. To sample tactile data, upload `Subsampling.ino` to the sensor after adjusting the parameters. After that, run `SubsamplingControl.m` with desirable parameters to sample data using various methods.
-* `SubsamplingControl.m` is the main function for subsampling in three different modes: regular, random, and binary;
-* `SubsamplingDisplay.m` is used to visualize the subsampled tactile image;
-* `downSamplingShift.m`, `randomSampling.m` and `binarySampling.m` are functions for regular, random and binary sampling methods, respectively;
 * `Subsampling` contains the Arduino code used to enable the sensor to execute subsampling tactile data within a designated duration; The sampling process is initiated by touching;
 * `Subsampling1` contains the Arduino code used to enable the sensor to execute subsampling tactile data within a designated duration; The sampling process is initiated by the `Enter` key;
-* `M_fs_plot.m` plots the relation between the sampling rate and the measurement level.
-* `binSamOrd` simulates and determines the order of binary sampling, given a number of sensors and a simple press image (where non-zero presses exist).
+* `SubsamplingControl.m` is the main function for subsampling in three different modes: regular, random, and binary;
+* `downSamplingShift.m`, `randomSampling.m` and `binarySampling.m` are functions for regular, random and binary sampling methods, respectively; The sampling process is initiated by touching;
+* `randomSampling1.m` and `binarySampling1.m` are functions for random and binary sampling methods, respectively; The sampling process is initiated by the `Enter` key;
+* `SubsamplingDisplay.m` is used to visualize the subsampled tactile image;
+* `downSamOrd.m` visulizes consecutive shifting down-sampling patterns;
+* `binSamOrd` simulates and determines the order of binary sampling, given a number of sensors and a simple press image (where non-zero presses exist);
+* `binSamOrd.m` visulizes a binary sampling pattern determined by params in `binSamOrd`;
+* `M_fs_plot.m` plots the relation between the sampling rate and the measurement level;
+* `forceR.m` determines the relationship between the force applied to the sensor and its measurement/resistance;
+* `time_force.m` makes time-force plot.
 
 ### Training Data Collection
 If you want to obtain training data, use the folder `code\dict_training\`. Run the section in `trainData.m` according to the training image you need. You can also run the last section to visualize the full raster training image you collected.
@@ -73,10 +78,6 @@ The folder `code\classification` is for the classification of collected subsampl
 
 ## Applications
 With the proposed sampling modes, reconstruction using a learned dictionary, and SRC, we have designed and conducted several experiments to investigate their feasibility and accuracy. Here, we explain the folders for these experiments.
-
-### Generalizability
-The folder `code\reconstruction` is also for the application of reconstruction of collected subsampled tactile data from objects that are not used to train a learned dictionary. Firstly, collect some subsampled tactile images of your daily objects (e.g. keys or toothbrushes) by using the file `SubsamplingControl.m` explained above. Then, with the trained dictionary, recover the subsampled images using the above file `dictRecovery1.m`. Last, run `genReconAccPlot.m` to calculate the accuracies of the reconstructed images and plot some relevant figures shown in the paper. To prove the generalizability of our methods, the objects used to do the subsampling have NOT been used to train the learned dictionary for subsampled image recovery. Notice that the code responsible for the reconstruction of subsampled images allows the reconstruction of simulated images, which are raw subsampled images with horizontal or vertical locomotion.
-* The file `genReconAccPlot.m` calculates the accuracies of the reconstructed images and plots some relevant figures.
 
 ### Projectile
 The folder `code\projectile` is for the application of fast detection of a tennis ball (as a projectile) onto the sensor. Firstly, you can directly use our data, or you need to collect the tactile images of the bouncing tennis ball by using the file `SubsamplingControl.m` with the binary subsampling mode. Then, run each section of `projectileAnalysis.m` to process the projectile's subsampled data and plot the figures shown in the paper.
@@ -116,6 +117,10 @@ The folder `code\instant_angle` is for the demo of tracking the instant angle of
 
 ### Insole
 The folder `code\insole` is for the demo of tactile images from an insole. You can check the subsampled and reconstructed images via `insoleVis.m`.
+
+### Generalizability
+The folder `code\reconstruction` is also for the application of reconstruction of collected subsampled tactile data from objects that are not used to train a learned dictionary. Firstly, collect some subsampled tactile images of your daily objects (e.g. keys or toothbrushes) by using the file `SubsamplingControl.m` explained above. Then, with the trained dictionary, recover the subsampled images using the above file `dictRecovery1.m`. Last, run `genReconAccPlot.m` to calculate the accuracies of the reconstructed images and plot some relevant figures shown in the paper. To prove the generalizability of our methods, the objects used to do the subsampling have NOT been used to train the learned dictionary for subsampled image recovery. Notice that the code responsible for the reconstruction of subsampled images allows the reconstruction of simulated images, which are raw subsampled images with horizontal or vertical locomotion.
+* The file `genReconAccPlot.m` calculates the accuracies of the reconstructed images and plots some relevant figures.
 
 ## Citation
 ```
