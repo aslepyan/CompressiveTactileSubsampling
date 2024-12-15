@@ -1,6 +1,6 @@
 <div align="center">
 
-# Adaptive Subsampling and Learned Model Improve<br /> Spatiotemporal Resolution of Tactile Skin
+# Adaptive Compressive Tactile Subsampling: Enabling High Spatiotemporal Resolution in Scalable Robotic Skin
 
 [[Paper](https://arxiv.org/abs/2410.13847)]
 
@@ -15,39 +15,6 @@
 <sup>2</sup> Department of Biomedical Engineering, Johns Hopkins School of Medicine, Baltimore, USA<br />
 <sup>3</sup> Department of Neurology, Johns Hopkins School of Medicine, Baltimore, USA<br />
 †These authors contributed equally to this study.
-</div>
-
-## Principles
-**Down-sampling Mode**
-:
-In this sampling mode, the sensor measures the force with the pixels with designated numbers, which are distributed evenly in the space. The position of measured pixels will shift with time to cover all the space of the sensor. <br />
-
-**Random Sampling Mode**
-:
-In random sampling, the sensor measures the force with the pixels with random positions. <br />
-
-**Binary Subsampling Mode**
-:
-The binary sampling mode will define a logarithmic order of positions of measured pixels in the 2D sensor. If one of the pixels measures force larger than a threshold, the sensor will measure its surrounding pixels. This adaptive process will continue recursively until the force of all surrounding pixels is lower than the threshold. During this process, there is no repetitive measured pixel for each tactile frame. <br />
-
-**Orthogonal Matching Pursuit (OMP)**
-:
-OMP is a greedy algorithm used for sparse signal representation or sparse approximation[^OMP]. It is widely used in applications like compressed sensing, sparse coding, and dictionary learning. OMP attempts to find the best sparse representation of a signal as a linear combination of a small number of atoms (columns) from a dictionary matrix.
-
-**Learned Dictionary Learning and its Recovery**
-:
-The learned dictionary is trained by the patches randomly selected from the collected full raster tactile images using the K-SVD method. The patches are of smaller size (e.g. 8x8 or 16x8) than the full 32x32 tactile images. Then, for each patch of subsampled tactile image, the ``FastOMP`` method with the learned dictionary and its corresponding sensing matrix rapidly encodes its sparse vector[^FastOMP]. After multiplying the sparse vector with the learned dictionary, we obtained the approximate full-raster patches of images. Last, we average the force values from the portions of overlapped patches[^ksvd]. <br />
-
-**Linear Interpolation Recovery**
-:
-Recovery using linear interpolation is a reconstruction of a function f ∈ **ℝ**<sup>2x1</sup> (e.g. a natural or tactile image) according to the values of some scattered points distributed in the 2D plane by using the linear method. To realize this task, we use a MATLAB function - ``scatteredInterpolant`` with ``'linear'`` as its ``Method`` and ``ExtrapolationMethod``. <br />
-
-**Sparse Representation-based Classification (SRC)**
-:
-In SRC, we first build a library, which is a matrix with flattened full-raster images as its columns. Each column of the library has a known class or label. Then, for a subsampled tactile image, the ``FastOMP`` method with the library and its corresponding sensing matrix rapidly encodes its sparse vector. After that, we compute the L2 reconstruction error using the coefficients of the sparse vector corresponding to each of the classes separately. The class that minimizes the L2 reconstruction error is selected to be the one for the tested tactile image[^SRC].
-
-<div align="center">
-    <img src="assets/principles.png" width="600">
 </div>
 
 ## Usage
@@ -70,11 +37,13 @@ The PCB design files are located in the `PCB` folder. These files are designed i
 
 ### Subsampled Data Acquisition
 If you want to collect some tactile data in a subsampling manner, use the folder `code\basics\`. To sample tactile data, upload `Subsampling.ino` to the sensor after adjusting the parameters. After that, run `SubsamplingControl.m` with desirable parameters to sample data using various methods.
-* `SubsamplingControl.m` is the main function for subsampling in three different modes: regular, random and binary;
+* `SubsamplingControl.m` is the main function for subsampling in three different modes: regular, random, and binary;
 * `SubsamplingDisplay.m` is used to visualize the subsampled tactile image;
 * `downSamplingShift.m`, `randomSampling.m` and `binarySampling.m` are functions for regular, random and binary sampling methods, respectively;
-* `Subsampling` contains the Arduino code used to enable the sensor to execute subsampling tactile data within a designated duration;
+* `Subsampling` contains the Arduino code used to enable the sensor to execute subsampling tactile data within a designated duration; The sampling process is initiated by touching;
+* `Subsampling1` contains the Arduino code used to enable the sensor to execute subsampling tactile data within a designated duration; The sampling process is initiated by the `Enter` key;
 * `M_fs_plot.m` plots the relation between the sampling rate and the measurement level.
+* `binSamOrd` simulates and determines the order of binary sampling, given a number of sensors and a simple press image (where non-zero presses exist).
 
 ### Training Data Collection
 If you want to obtain training data, use the folder `code\dict_training\`. Run the section in `trainData.m` according to the training image you need. You can also run the last section to visualize the full raster training image you collected.
@@ -163,10 +132,4 @@ The folder `code\insole` is for the demo of tactile images from an insole. You c
 We sincerely appreciate Becca Greene, Prof. Jeremias Sulam and Prof. Jeremy Brown for their advice on this work. We also many many thanks Dr. Ron Rubinstein for his code for training the ksvd dictionary.
 
 ## Contact
-If you have any questions or inquiries, please feel free to contact this [email](mailto:aslepya1@jhu.edu).
-
-## References
-[^SRC]: Robust face recognition via sparse representation, 2009
-[^FastOMP]: An Efficient FPGA Implementation of Orthogonal Matching Pursuit With Square-Root-Free QR Decomposition, 2018
-[^KSVD]: K-SVD: An Algorithm for Designing Overcomplete Dictionaries for Sparse Representation, 2006
-[^OMP]:  Matching pursuits with time-frequency dictionaries, 1993
+If you have any questions or inquiries, please feel free to contact this [email](mailto:dli106@jhmi.edu).
