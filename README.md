@@ -76,6 +76,9 @@ The folder `code\classification` is for the classification of collected subsampl
 * `libVis.m` visualizes the library;
 * `SRC.m` is used to determine the classes the reconstructed images belong to, calculate the accuracies of the classification of different sampling modes and measurement levels, as well as plot some relevant figures.
 
+### Real-time Full Raster Scan
+The folder `code\realTimeFR\` is to visualize a real-time full raster scan of the sensor. First, upload `realTimeFR_32x32.ino` and then run `realTimeFR_32x32.m`.
+
 ## Applications
 With the proposed sampling modes, reconstruction using a learned dictionary, and SRC, we have designed and conducted several experiments to investigate their feasibility and accuracy. Here, we explain the folders for these experiments.
 
