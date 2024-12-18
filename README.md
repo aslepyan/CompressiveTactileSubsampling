@@ -83,12 +83,16 @@ The folder `code\realTimeFR\` is to visualize a real-time full raster scan of th
 With the proposed sampling modes, reconstruction using a learned dictionary, and SRC, we have designed and conducted several experiments to investigate their feasibility and accuracy. Here, we explain the folders for these experiments.
 
 ### Projectile
-The folder `code\projectile` is for the application of fast detection of a tennis ball (as a projectile) onto the sensor. Firstly, you can directly use our data, or you need to collect the tactile images of the bouncing tennis ball by using the file `SubsamplingControl.m` with the binary subsampling mode. Then, run each section of `projectileAnalysis.m` to process the projectile's subsampled data and plot the figures shown in the paper.
-* The file `projectileAnalysis.m` analyzes the projectile's subsampled data and generates some figures.
+The folder `code\projectile` is for the application of fast detection of a tennis ball (as a projectile) onto the sensor. Firstly, you can directly use our data, or you need to collect the tactile images of the bouncing tennis ball by using the file `SubsamplingControl.m` with the binary subsampling mode. Then, run each section of `projectileAnalysis.m` and `instant_angle.m` to process the projectile's subsampled data and plot the figures shown in the paper.
+* `projectileAnalysis.m` analyzes the projectile's subsampled data and generates some figures;
+* `instant_angle.m` is the main code for this demo of tracking the instant angle of incidence of a bouncing ball.
 
 ### Deformation
 The folder `code\deform` is for the application of roughly drawing the shape of deformable objects. Firstly, you can directly use our data, or you need to collect the tactile images of some deformable objects (e.g. deflated balloon or elastic objects) by using the file `SubsamplingControl.m` with the binary subsampling mode. Then, run each section of `deformAnalysis.m` to process the subsampled data of those deformable objects and draw their rough shape, as shown in the paper.
 * The file `deformAnalysis.m` analyzes the subsampled data of deformable objects and generates a figure depicting their approximate shapes.
+
+### Full-Body Tactile Sensing
+`code\reconstruction\recDataDisplay.m` is for checking the subsampled and reconstructed images of tactile images from the insole, chest, helmet, glove, leg, and arm.
 
 ### Real-time Reconstruction and Classification
 The folder `code\realTime` is for the application of real-time reconstruction or classification without any data processing outside the sensor.<br />
@@ -108,22 +112,13 @@ As for the real-time classification, first of all, you need get the library thro
 * `realTimeSRCSimu.m` is used to determine the accuracy of classification of full-raster tactile images in the simulation;
 * `realTimePlot.m` is used to plot all relevant figures related to this application. 
 
-### Rotator
-The folder `code\rotator` is for the application of fast detection of the pressure of a hard rotator on the sensor in varied frequencies. Firstly, you can directly use our data, or you need to collect the tactile images of hard rotator by using the file `SubsamplingControl.m` with the binary subsampling mode. Then, run each section of `rot.m` to process the subsampled data of the rotator and plot the single-sided amplitude spectrums shown in the paper.
-* The file `rot.m` analyzes the subsampled data of the rotator at different speeds (or frequencies) and generates the single-sided amplitude spectrums.
-
-### Ricochet Angle
-The folder `code\instant_angle` is for the demo of tracking the instant angle of incidence of a bouncing ball. You can directly run the file `instant_angle.m` to see the tracking animation.
-* `instant_angle.m` is the main code for this demo;
-* `com.m` is a helper function that calculates the center of mass (COM) of the bouncing object;
-* `nameTransfer.m` is a helper function that converts the names for visualization.
-
-### Insole
-The folder `code\insole` is for the demo of tactile images from an insole. You can check the subsampled and reconstructed images via `insoleVis.m`.
-
 ### Generalizability
 The folder `code\reconstruction` is also for the application of reconstruction of collected subsampled tactile data from objects that are not used to train a learned dictionary. Firstly, collect some subsampled tactile images of your daily objects (e.g. keys or toothbrushes) by using the file `SubsamplingControl.m` explained above. Then, with the trained dictionary, recover the subsampled images using the above file `dictRecovery1.m`. Last, run `genReconAccPlot.m` to calculate the accuracies of the reconstructed images and plot some relevant figures shown in the paper. To prove the generalizability of our methods, the objects used to do the subsampling have NOT been used to train the learned dictionary for subsampled image recovery. Notice that the code responsible for the reconstruction of subsampled images allows the reconstruction of simulated images, which are raw subsampled images with horizontal or vertical locomotion.
 * The file `genReconAccPlot.m` calculates the accuracies of the reconstructed images and plots some relevant figures.
+
+### Rotator
+The folder `code\rotator` is for the application of fast detection of the pressure of a hard rotator on the sensor in varied frequencies. Firstly, you can directly use our data, or you need to collect the tactile images of hard rotator by using the file `SubsamplingControl.m` with the binary subsampling mode. Then, run each section of `rot.m` to process the subsampled data of the rotator and plot the single-sided amplitude spectrums shown in the paper.
+* The file `rot.m` analyzes the subsampled data of the rotator at different speeds (or frequencies) and generates the single-sided amplitude spectrums.
 
 ## Citation
 ```
