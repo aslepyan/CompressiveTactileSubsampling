@@ -48,7 +48,7 @@ If you want to collect some tactile data in a subsampling manner, use the folder
 * `binSamOrd.m` visulizes a binary sampling pattern determined by params in `binSamOrd`;
 * `M_fs_plot.m` plots the relation between the sampling rate and the measurement level;
 * `forceR.m` determines the relationship between the force applied to the sensor and its measurement/resistance;
-* `time_force.m` makes time-force plot.
+* `time_force.m` makes a time-force plot.
 
 ### Training Data Collection
 If you want to obtain training data, use the folder `code\dict_training\`. Run the section in `trainData.m` according to the training image you need. You can also run the last section to visualize the full raster training image you collected.
@@ -58,7 +58,7 @@ If you want to obtain training data, use the folder `code\dict_training\`. Run t
 The folder `code\dict_training\` is also for the task of training dictionary, it allows to train three types of dictionary: learned dictionary, DCT dictionary and Haar dictionary (square and overcomplete). You can acquire all types of dictionaries by running the following MATLAB files. If you want to recover subsampled images as a whole,  run `dictCombine.m` to get the assembled dictionaries for the whole subsampled images.
 * `dictTraining_ksvd.m` is for training the learned dictionary based on your training data;
 * `dictTraining_DCT.m` is used to train the DCT dictionary;
-* `dictTraining_Haar.m` is used to train the square Haar dictionary (i.e. the number of patch measurements equals to the dictionary size);
+* `dictTraining_Haar.m` is used to train the square Haar dictionary (i.e. the number of patch measurements equals the dictionary size);
 * `dictTraining_overcompleteHaar.m` is used to train the Haar dictionary with the desired dictionary size;
 * `dictCombine.m` combines several patch dictionaries together to recover subsampled tactile images as a whole.
 
@@ -74,7 +74,7 @@ The folder `code\reconstruction` is for the reconstruction of collected subsampl
 The folder `code\classification` is for the classification of collected subsampled tactile data. Firstly, run `libTraining.m` to acquire the library for SRC. Then, run each section of `SRC.m` to conduct SRC, calculate accuracies or realize some figures in the paper. Besides, the code for the visualization of the library is also provided. Here, the objects used for subsampling have also been used to form the library for subsampled image classification.
 * `libTraining.m` is used to construct a library for SRC;
 * `libVis.m` visualizes the library;
-* `SRC.m` is used to determine the classes the reconstructed images belong to, calculate the accuracies of the classification of different sampling modes and measurement levels, as well as plot some relevant figures.
+* `SRC.m` is used to determine the classes the reconstructed images belong to, calculate the accuracies of the classification of different sampling modes and measurement levels, and plot some relevant figures.
 
 ### Real-time Full Raster Scan
 The folder `code\realTimeFR\` is to visualize a real-time full raster scan of the sensor. First, upload `realTimeFR_32x32.ino` and then run `realTimeFR_32x32.m`.
@@ -96,9 +96,9 @@ To realize the real-time reconstruction, firstly, you need to have a reasonably 
 For its simulation, you need to upload the file named `realTimeBinaryReconPBP.ino` and determine the accuracy by using the `realTimeSimu.m`, while all the remaining operations are the same as the real-time reconstruction.<br />
 As for the real-time classification, first of all, you need get the library through `libTraining.m` as mentioned above. After adjusting some parameters, upload the `realTimeBinarySRC.ino` to the sensor. Then, run the `dict2Arduino_class.m` to transfer the library to the sensor. Last, visualize the real-time classification through the serial monitor in the Arduino.
 
-* `realTimeBinaryReconPBP` contains the Arduino code to enable the sensor to sample the tactile data in real time by using the binary subsampling method, and to reconstruct the subsampled image by a learned dictionary patch by patch;
+* `realTimeBinaryReconPBP` contains the Arduino code to enable the sensor to sample the tactile data in real-time by using the binary subsampling method, and to reconstruct the subsampled image by a learned dictionary patch by patch;
 * `realTimeBinaryReconPBPSimu` contains the Arduino code to enable the sensor to sample and reconstruct the full raster tactile data, which has been sampled and stored. This simulation aims to determine the accuracy of the real-time reconstruction method by a learned dictionary patch by patch;
-* `realTimeBinarySRC` contains the Arduino code to enable the sensor to sample the tactile data in real time using the binary subsampling method, and to classify the subsampled tactile image using the SRC method;
+* `realTimeBinarySRC` contains the Arduino code to enable the sensor to sample the tactile data in real-time using the binary subsampling method, and to classify the subsampled tactile image using the SRC method;
 * `realTimeBinarySRCSimu` contains the Arduino code to enable the sensor to sample and classify the full raster tactile data, which has been sampled and stored. This simulation aims to determine the accuracy of the real-time classification by SRC;
 * `dict2Arduino_recon.m` is used to transfer a learned dictionary and its corresponding helper matrices from MATLAB to the sensor;
 * `dict2Arduino_class.m` is used to transfer a library used in the SRC from MATLAB to the sensor;
@@ -113,7 +113,7 @@ The folder `code\rotator` is for the application of fast detection of the pressu
 * The file `rot.m` analyzes the subsampled data of the rotator at different speeds (or frequencies) and generates the single-sided amplitude spectrums.
 
 ### Ricochet Angle
-The folder `code\instant_angle` is for the demo of tracking the instant angle of incidence of a bouncing ball. You can directly run the file `instant_angle.m` to see the animation for tracking.
+The folder `code\instant_angle` is for the demo of tracking the instant angle of incidence of a bouncing ball. You can directly run the file `instant_angle.m` to see the tracking animation.
 * `instant_angle.m` is the main code for this demo;
 * `com.m` is a helper function that calculates the center of mass (COM) of the bouncing object;
 * `nameTransfer.m` is a helper function that converts the names for visualization.
