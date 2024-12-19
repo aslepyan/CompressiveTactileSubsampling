@@ -34,6 +34,7 @@ SamplingRate = ...
 ADCRate = SamplingRate.*SensorNum;
 
 str = string(1:11);
+
 for i = 1:11
     str(i) = "["+str(i)+"]";
 end
@@ -65,8 +66,15 @@ text(150,1024*1000,"This work",'FontSize',12)
 
 xlabel('Measurements Per Frame')
 ylabel('Total Sensor Rate (Sensors/Sec)')
-%% FOM
+%% FOM -- this one
 close all
+
+str = string([22,23,65,66,67,68,69,70,71,72,73]);
+
+for i = 1:11
+    str(i) = "["+str(i)+"]";
+end
+
 x = SensorNum;
 textscatter(x,ADCRate,str,"TextDensityPercentage",100)
 hold on
@@ -76,10 +84,10 @@ indx = 1:2000;
 plot(indx,y_fit,'r-','LineWidth',1)
 plot(indx,y_fit+2*delta,'m--',indx,y_fit-2*delta,'m--')
 
-scatter(55*1000,1024*1000,100,'*','LineWidth',1)
-text(150,1024*1000,"This work",'FontSize',12)
+scatter(55,1024*1000,100,'*','LineWidth',1)
+text(100,1024*1000,"This work",'FontSize',12)
 
-xlabel('ADC Rate (Sensors/sec)')
+xlabel('Measurements Per Frame')
 ylabel('Total Sensor Rate (Sensors/Sec)')
 
 
