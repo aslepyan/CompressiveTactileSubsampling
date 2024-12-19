@@ -19,7 +19,7 @@
 
 ## Usage
 The codes for using our methods for tactile image data and realizing our results are explained below. Notice that you can access our data files through this 
-[link](https://livejohnshopkins-my.sharepoint.com/:f:/g/personal/aslepya1_jh_edu/EjxrHBfSJDROho7Z2A9AB-YBlOvvXvdET3gtHFjB1QXo9g?e=V1dY6P). 
+[link](https://livejohnshopkins-my.sharepoint.com/:f:/g/personal/aslepya1_jh_edu/EjxrHBfSJDROho7Z2A9AB-YBggjp6DtikdrMtPDEytMRLw?e=0MTquj). 
 Some helper functions are not described here, but you can check the comments about their usage in the corresponding files. <br />
 The folder `ksvdbox13` for training ksvd dictionary could be downloaded [here](https://csaws.cs.technion.ac.il/~ronrubin/software.html). This folder should be placed at `code\`.
 
