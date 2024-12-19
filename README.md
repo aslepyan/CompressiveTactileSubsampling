@@ -25,22 +25,32 @@ The folder `ksvdbox13` for training ksvd dictionary could be downloaded [here](h
 
 ### Data folders
 Download each data folder and put it into the directory `data\`. Each data folder is explained below.
-* `Subsampling_Data` is the folder for the data folders of the 30 daily objects;
-* `Projectile_Data` is the data folder for the application of detecting the bouncing tennis ball (the projectile);
-* `Deformation_Data` is the data folder for the application of detecting deformable objects;
-* `Rotator_Data` is the data folder for the application of the rotator;
-* `insole_data` is the data folder for the demo of the insole;
-* `ricochet_angle_data` is the data folder for the demo of determining the angles of incidence of ricochet.
+* `Subsampling_Data` is for 30 daily objects;
+* `Projectile_Data` is for the application of detecting a bouncing tennis ball;
+* `ricochet_angle_data` stores data of a bouncing tennis ball with specific incidence angles.
+* `Deformation_Data` is for the application of detecting deformable objects;
+* `manikin_data` stores data for slashing, shooting, and punching a manikin;
+* `robot_data` stores data for slashing and pulling a UR5 robot arm;
+* `insole_data` is for recording jumping;
+* `arm_data` is for tapping on an arm;
+* `chest_data` is for touching a chest;
+* `helmet_data` is for the impact of foam bullet on a helmet;
+* `leg_data` is for bouncing a ball on a leg;
+* `glove_data` is for catching and throwing a tennis ball with a hand worn by a glove;
+* `Rotator_Data` is for the application of the rotator;
+* `Demo_Data` stores data for the video demonstration;
+* `archieveData` is used to store useful data files for subsequent data analysis, such as accuracy determination of reconstruction and sparse representation classification (SRC);
+* `traningData` is used to store various dictionaries and their auxiliary data, training data sets, and an SRC library.
 
 ### Hardware
 The PCB design files are located in the `PCB` folder. These files are designed in KiCAD and contain the schematic and layout for readout board (`PCB Files Readout Board`) and the 32x32 tactile sensor array (`PCB Files Tactile Sensor Array`).
 
 ### Subsampled Data Acquisition
-If you want to collect some tactile data in a subsampling manner, use the folder `code\basics\`. To sample tactile data, upload `Subsampling.ino` to the sensor after adjusting the parameters. After that, run `SubsamplingControl.m` with desirable parameters to sample data using various methods.
+If you want to collect some tactile data in a subsampling manner, use the folder `code\data_collection\`. To sample tactile data, upload `Subsampling.ino` to the sensor after adjusting the parameters. After that, run `SubsamplingControl.m` with desirable parameters to sample data using various methods.
 * `Subsampling` contains the Arduino code used to enable the sensor to execute subsampling tactile data within a designated duration; The sampling process is initiated by touching;
 * `Subsampling1` contains the Arduino code used to enable the sensor to execute subsampling tactile data within a designated duration; The sampling process is initiated by the `Enter` key;
 * `SubsamplingControl.m` is the main function for subsampling in three different modes: regular, random, and binary;
-* `downSamplingShift.m`, `randomSampling.m` and `binarySampling.m` are functions for regular, random and binary sampling methods, respectively; The sampling process is initiated by touching;
+* `downSamplingShift.m`, `randomSampling.m` and `binarySampling.m` are functions for regular, random, and binary sampling methods, respectively; The sampling process is initiated by touching;
 * `randomSampling1.m` and `binarySampling1.m` are functions for random and binary sampling methods, respectively; The sampling process is initiated by the `Enter` key;
 * `SubsamplingDisplay.m` is used to visualize the subsampled tactile image;
 * `M_fs_plot.m` plots the relation between the sampling rate and the measurement level;
@@ -82,7 +92,7 @@ The folder `code\deform` is for the application of roughly drawing the shape of 
 * `deformAnalysis.m` analyzes the subsampled data of deformable objects and generates a figure depicting their approximate shapes.
 
 ### Full-Body Tactile Sensing
-* `code\reconstruction\recDataDisplay.m` is for checking the subsampled and reconstructed images of tactile images from the insole, chest, helmet, glove, leg, and arm.
+* `code\reconstruction\recDataDisplay.m` could also be used to check the subsampled and reconstructed tactile data collected from insole, chest, helmet, glove, leg, and arm.
 
 ### Real-time Reconstruction and Classification
 The folder `code\realTime` is for the application of real-time reconstruction or classification without any data processing outside the sensor.<br />
