@@ -57,7 +57,7 @@ If you want to collect some tactile data in a subsampling manner, use the folder
 * `time_force.m` makes a time-force plot.
 
 ### Tactile Dictionary Training
-The folder `code\dict_training\` is for the task of training dictionary, it allows to train three types of dictionary: learned dictionary, DCT dictionary and Haar dictionary (square and overcomplete). You can acquire all types of dictionaries by running the following MATLAB files. If you want to recover subsampled images as a whole,  run `dictCombine.m` to get the assembled dictionaries for the whole subsampled images.
+The folder `code\dict_training\` is for the task of training dictionary, it allows to train three types of dictionary: learned dictionary, DCT dictionary and Haar dictionary (square and overcomplete). You can acquire all types of dictionaries by running the following corresponding files. If you want to recover subsampled images as a whole,  run `dictCombine.m` to get the assembled dictionaries for the whole subsampled images.
 * `trainData.m` is responsible for collecting the training data and its last section is to visualize the full raster tactile image you collected.
 * `dictTraining_ksvd.m` is for training the learned dictionary based on your training data;
 * `dictTraining_DCT.m` is used to train the DCT dictionary;
