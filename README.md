@@ -132,7 +132,7 @@ The folder `code\supplements` contains the file that generates some results show
 ```
 
 ## Acknowledgement
-We sincerely appreciate Becca Greene, Prof. Jeremias Sulam and Prof. Jeremy Brown for their advice on this work. We also many many thanks Dr. Ron Rubinstein for his code for training the ksvd dictionary.
+We sincerely appreciate Prof. Jeremy Brown for his advice on this work. We also many many thanks Dr. Ron Rubinstein for his code for training the ksvd dictionary.
 
 ## Contact
 If you have any questions or inquiries, please feel free to contact this [email](mailto:dli106@jhmi.edu).
