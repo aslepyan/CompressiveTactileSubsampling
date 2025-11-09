@@ -6,6 +6,8 @@
 
 [Ariel Slepyan](https://scholar.google.com/citations?hl=en&user=8uVwi4UAAAAJ&view_op=list_works&sortby=pubdate)<sup>1</sup>†, 
 [Dian Li (李典)](https://scholar.google.com/citations?view_op=list_works&hl=en&user=L_5PIfgAAAAJ)<sup>2</sup>†, 
+[Hongjun Cai](mailto:hcai18@jh.edu)<sup>1</sup>, 
+[Ryan McGovern](https://scholar.google.com/citations?user=T1UDhk8AAAAJ&hl=en&oi=ao)<sup>2</sup>, 
 [Aidan Aug](https://www.researchgate.net/profile/Aidan_Aug)<sup>2</sup>, 
 [Sriramana Sankar](https://scholar.google.com/citations?user=SCZ0ibcAAAAJ&hl=en)<sup>2</sup>, 
 [Trac Tran](https://scholar.google.com/citations?user=RyRjA0cAAAAJ&hl=en)<sup>1</sup>, 
